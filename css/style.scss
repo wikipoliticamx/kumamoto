@@ -1,1001 +1,265 @@
-$crema:#f6f1e9;
-$transparent:rgb(240, 236, 220);
 @import "bourbon/bourbon";
 
-body {font-family:sans-serif; margin:0; padding:0; font-size:12px; background:#fff}
-#veda { position:absolute; top:0; left:0; width:100%; background-color:rgba(216,109,117,0.8); color:white; z-index:100; text-align:center; cursor:pointer;
-	div { padding:0.6em 1.5em; padding-right:0; vertical-align:middle; line-height:1.2em; font-size:1.2em; }
-	span.close { font-size:2em; font-weight:bold; padding-left:0.5em; padding-right:1.5em; float:right; vertical-align:middle; color:white; }
-	&:hover { background-color:rgba(216,109,117,1);}
-}
-
-/************************** ;MENU **************************/
-#menu {position:absolute; bottom:15%; left:0; z-index:2; font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; font-size:2em; counter-reset:item -1; line-height:1em;
-	a { color:#fff; display:block; margin:0; height:2em; 
-		strong {display:inline-block}
-
-		&::before { background:#67B2A4; width:2em; height:1.6em; padding:0.5em 0; text-align:center; display:inline-block;
-			content:counter(item);
-			/*box-shadow:2px 2px 5px #555;*/
-			counter-increment:item;
-			border-right:1px solid #777;
-		}
-		&:first-of-type {
-			&::before {
-				border-top:1px solid #777;
-			}
-		}
-		&:last-of-type {
-			&::before {
-				border-bottom:1px solid #777;
-				padding-bottom:0;
-			}
-		}
-		strong {display:none; background:#aaa; padding:0.5em 1em; text-transform:uppercase;
-			span {font-weight:200}
-		}
-
-		&:nth-child(odd)::before {background-color:#8FC8BD}
-
-		// Propuestas:
-		&.uva {
-			&.pausa::before {background:#EACCCC; color:#555}
-			&::before {background:#F7E4E4; color:#555}
-		}
-		&.esmeralda {
-			&.pausa::before {background:#BBDAD3; color:#555}
-			&::before {background:#ECFCF8; color:#555}
-		}
-
-		&:nth-of-type(1)::before {
-			content:'\2191'; background:#eee; color:#333;
-			/*content:'';*/
-			/*background:url(/img/logos/kumalogo-sin-texto.png) no-repeat 0 0;*/
-			/*background-size:100%;*/
-			/*background-color:black;*/
-			/*[>box-shadow:none;<]*/
-		} //uarr
-		&:nth-of-type(1).active {
-			visibility:hidden;
-		}
-		&.active::before {content:'\2192'; background-color:#4E7B74 !important; color:#fff !important} //rarr
+body {margin:0; padding:0; text-align:center; background:white; font-family:sans-serif}
+a {color:white; text-decoration:none}
+	a:hover {text-decoration:underline}
+.header {position:relative;
+	.top {position:relative; height:600px; overflow:hidden;
+		img.bkg {width:100%; position:absolute; top:0; left:0; z-index:1; @include transition(all 2s ease);}
 		&:hover {
-			&::before {background:#CD5560 !important; content:counter(item); color:#fff !important}
-			strong {display:inline-block; vertical-align:top; background:#4E7B74}
+			img.bkg {width:120%; top:-10%; left:-10%}
 		}
-
-		// Principios:
-		&.inteligencia-colectiva::before {background:#B7D8D4}
-		&.participacion-ciudadana::before {background:#C2DBE4}
-		&.apertura:before {background:#B4B4BB}
-		&.innovacion::before {background:#EDAC9C}
-		&.transparencia::before {background:#E8A3A7}
-		&.derechos-humanos::before {background:#EDC2D4}
-		&.perspectiva-de-genero::before {background:#DBCCE0}
-	}
-}
-.ps-scrollbar-y-rail {z-index:2}
-
-/* INDEX */
-/* SCREEN */
-.screen { background:$crema url(/img/ui/kumatile.jpg); width:100%; height:100%; position:relative; overflow:hidden; visibility:hidden;
-
-	/* COVER */
-	&.cover {
-		img.kumafoto {width:100%; position:absolute; top:0; right:0; -webkit-filter:blur(1em); }
-
-		.copy {padding:2.5em 0 0 2.5em; position:absolute; top:0; width:100%; height:100%; z-index:1; @include user-select(none);
-
-			.kumalogo {float:left; margin-right:0; height:23em; margin-top:-0.6em; opacity:0; position:relative; z-index:2}
-			
-			h1 {padding-top:0; margin-top:0; font-size:10em; line-height:1em; font-family:"Lemon/Milk", Helvetica, Arial; margin-bottom:0; 
-				position:relative; color:transparent; 
-				img {height:0.8em; vertical-align:middle}
-				&.pedro {right:0; top:-3.33em;}
-				&.kumamoto {right:0; opacity:0}
-			}
-			//Candidato independiente
-			h3 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-size:2.8em; margin:0; opacity:0; font-weight:200; position:absolute; top:8.9em; left:0.8em;
-				strong, bold {font-weight:700; font-size:inherit}
-			}
-			//Ocupemos la ciudad
-			h2 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; font-size:5em; margin:0.3em 0 0 0; position:absolute; left:-16.9em; top:6em; text-transform:uppercase; line-height:1.1em;
-			}
-			//proximamente
-			h4 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-size:3.5em; color:#fff; font-weight:200; padding:0; position:absolute; bottom:2.5em; left:0.6em;
-				text-shadow:0.05em 0.05em 0.12em #555;
-				strong {font-weight:700; color:#379088; text-transform:uppercase;
+		div.logo-y-ocupemos { text-align:left; position:absolute; top:30px; left:30px; z-index:2; color:white;
+			div.logo {height:8em; position:relative;
+				@include keyframes(fadeIn) {
+				  from {
+					 @include transform(scale(0));
+				  }
+				  to {
+					 @include transform(scale(1));
+				  }
 				}
-			}
-		}
-		.redes {position:absolute; top:2.5em; right:2.5em; width:9.2em; line-height:2.5em; z-index:2;
-			img {width:2.5em; opacity:0; @include filter(grayscale(100%));}
-			a {
-				&.fb img {width:5em; float:left; margin-right:0.8em}
-				&:hover img {@include filter(grayscale(0));}
-			}
-		}
-		.kitkumamoto {position:absolute; bottom:4.5em; right:-40em; text-align:center; padding:0; width:33.3em; background-size:33.3em auto; text-decoration:none; color:black; z-index:3;
-			img {width:33em}
-		}
-		&.portrait {
-			.copy { padding-top:1.5em;
-				h1.pedro {font-size:18em; margin-bottom:0}
-				h1.kumamoto {display:inline-block; font-size:14em}
-
-				h3 {top:8.7em; left:0.7em; font-size:3.8em;
-					span {display:none}
-				}
-				.kumalogo {height:40em; position:absolute; top:40em; display:block;}
-
-				h2 {font-size:8em; right:17.85em; left:auto; top:auto; bottom:3.5em; width:14em; color:#fff}
-				h4 {top:auto; left:auto; bottom:4em; right:4em;
-					strong {color:#66CAC1}
-				}
-			}
-			.goodbye {font-size:1.3em}
-		}
-	}
-
-	/* VIDEO */
-	&.video { background-color:#ADDFD7; color:black; text-align:center; position:relative; background-repeat:no-repeat; background-position:center top; background-size:100%;
-		.theater {/*overflow:hidden;*/ background:#000/*#607F8C*/; width:100%; position:absolute; top:0;
-			.fb {position:absolute; @include filter(grayscale(100%)); z-index:5;
-				img {height:5em; }
-				&:hover { @include filter(grayscale(0)); }
-			}
-			.date { font-size:1.1em; padding-top:2em; text-align:right;
-				a {color:#555; text-decoration:none;
-					&:hover {color:white; text-decoration:underline}
-				}
-			}
-			#ytplayer, #veil {width:100%; margin:0 auto; display:inline-block; position:absolute; top:5em; z-index:1; margin-left:-2em;}
-			#veil {z-index:2; display:none}
-			.sidebar { position:absolute; width:16.6em; right:0; top:0; height:100%; overflow:auto; text-align:center;
-				.soundToggle, .replay { height:6.6em; width:6.6em; margin-top:5em; margin-bottom:2.5em; position:relative; display:inline-block; overflow:hidden; @include transition(all 0.2s ease); cursor:pointer;
-					img {height:6.6em; }
-					&.muted img {position:absolute; top:0; left:0}
-					&.unMuted img {position:absolute; top:0; left:-6.6em}
-					&:hover {
-						@include transform(scale(1.3));
-					}
-				}
-				.replay {margin-left:2em}
-				.thumbs {position:relative; max-height:43.64em;
-					img {width:16.666em; height:9.25em; display:inline-block; margin:0.83em 0.41em; @include filter(grayscale(100%)); cursor:pointer; border:1px solid transparent;
-						&:hover, &.active { 
-							@include filter(grayscale(0));
-							opacity:1; border:1px solid white;
-						}
-					}
-				}
-			}
-		}
-
-		.copy {position:absolute; bottom:3.5em; width:100%; 
-			h1 {font-size:5.6em; line-height:1.11em; margin:0; margin-right:0.8em; margin-top:2.5; position:relative; top:0.2em; display:inline-block; text-transform:uppercase; font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; text-align:left;
-				span { opacity:0; position:relative; display:inline-block; @include transition(all 8s ease);
-					&.muros {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:500}
-					&.si {font-size:150%; top:0.2em; color:rgb(152, 95, 96); font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:bold}
-				}
-				div {margin-left:3em}
-			}
-			p {font-family:"L Futura W01", Helvetica; width:30em; color:#000; display:inline-block; margin:0 auto; vertical-align:top; text-align:left; font-size:1.4em; opacity:0;
-				span {display:block; margin:0.5em 0}
-				strong {@include transition(all 4s ease); }
-				b {color:rgb(55, 144, 136)}
-				a {color:black; text-decoration:none; font-style:italic;
-					&:hover {text-decoration:underline}
-				}
-			}
-		}
-	}
-
-	/* NOSOTROS */
-	$faceSide:10.5em;
-	&.nosotros { color:white; text-align:center;
-		h1 { font-family:"FF Meta W01", Helvetica, Arial, sans-serif; color:#000; text-align:center; margin:0; font-size:7em; display:inline-block; line-height:1em; vertical-align:middle; width:10.3em; text-transform:uppercase; position:relative; letter-spacing:0.2em; margin-top:-0.2em;
-			img {height:1.2em; vertical-align:middle}
-			a {position:absolute; bottom:-0.4em; font-size:0.37em; line-height:1em; letter-spacing:0; right:8.2em; font-weight:200; color:#999; text-decoration:none;
-				&:hover {color:rgb(152, 95, 96)}
-			}
-		}
-		.galaxia {text-align:center; display:inline-block; vertical-align:middle; line-height:normal; margin-top:2em;
-			.azulejo-top, .azulejo-bottom {position:absolute; z-index:1; width:110%; left:-2%}
-				.azulejo-bottom {bottom:-6%}
-				.azulejo-top {top:-6%}
-			div.wiki { display:inline-block; width:$faceSide; height:$faceSide; margin:0.7em 2em; text-align:center; position:relative; text-decoration:none; z-index:2; font-size:1em;
-				vertical-align:middle; cursor:pointer;
-				opacity:0; 
-
-				span {color:white; font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:700; text-transform:uppercase; font-size:2em; position:absolute; bottom:0.2em; line-height:1em;
-					visibility:hidden;
-					display:inline-block; width:5em; text-align:center;
-					/*-webkit-text-stroke-width:2px; -webkit-text-stroke-color:#000;*/
-					z-index:2;
-				}
-				img {width:$faceSide; height:$faceSide; position:relative; z-index:1; border:1px solid #aaa; border-radius:1.6em; 
-					box-shadow:0.15em 0.15em 0.2em #999; 
+				img {height:8em; position:absolute; top:0; left:0;
+					&.white {z-index:1}
+					&.color {z-index:2; opacity:0; @include transition(all 1s ease);}
 				}
 				&:hover {
-					@include transform(scale(1.3)); z-index:3; 
-					transition:all 0.2s ease !important; -moz-transition:all 0.2s ease !important; -webkit-transition:all 0.2s ease !important;
-					img {
-						box-shadow:0.15em 0.15em 0.2em #555; vertical-align:middle; border-color:white;
-					}
-					span {visibility:visible}
-
+					img.color {opacity:1}
 				}
+				height:8em
+			}
+			div.ocupemos-el-congreso { margin-top:5em; margin-left:6em; text-align:left; font-weight:bold; font-size:1.3em;
+				img {margin-bottom:0.7em}
+				span {margin-left:2em}
 			}
 		}
-	}
-
-	/* ;NOS ASESORAN */
-	&.asesores { text-align:center; z-index:1; position:relative;
-		.asesores-bkg {position:absolute; top:0; height:100%; right:-0.5%}
-		h1 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; font-size:7em; text-align:center; margin:0; text-transform:uppercase;
-			left:0; z-index:2; color:#000; text-align:center; width:100%;
-			strong {font-family:"FF Meta W01", Helvetica, Arial, sans-serif}
-		}
-		div.asesores {margin:0 auto;
-			.asesor {margin-bottom:0.5em; position:relative;
-				.portrait {display:inline-block; text-align:right; width:10em; position:relative;
-					img {height:8em; margin-right:2em; border:1px solid #999}
+		div.topbar {position:absolute; top:0; right:0; z-index:2; text-align:right;
+			a { display:inline-block; margin:10px 10px 0 0; width:75px; height:75px; position:relative;
+				img {width:75px; position:absolute; top:0; left:0; vertical-align:middle;
+					&.white {z-index:1}
+					&.color {z-index:2; opacity:0; @include transition(all 1s ease);}
 				}
-				.bio {display:inline-block; max-width:14em; vertical-align:top; text-align:center;
-					span.name {display:block; font-size:1.2em; color:rgb(200, 112, 114); text-transform:uppercase; font-weight:200}
-					em {display:block; margin:0.6em 0.6em 0 0.6em; color:#777;
-						a {color:#777;
-							&:hover {text-decoration:underline}
-						}
-					}
-				}
-				p {display:inline-block; text-align:right; width:22em; vertical-align:middle; margin-top:0; text-align:left; font-size:130%}
-				.card {background:white; display:inline-block; padding-top:0.6em; margin-bottom:0.5em; vertical-align:middle; position:relative;
-					box-shadow:0.2em 0.2em 0.4em #ccc;
-				}
-			}
-			.center {display:block; text-align:center; margin-bottom:1em;
-				.top, .bottom {display:inline-block}
-				.asesor {display:inline-block; max-width:15em; text-align:center; margin-bottom:1em; vertical-align:top; background:white;
-					padding:1.5em 1em; margin-right:1.5em; box-shadow:0.2em 0.2em 0.4em #ccc;
-					img {margin-right:0; height:10em}
-					.bio {display:block; width:100%; margin-top:0.5em; text-align:center;}
-					p {display:none;}
-				}
-			}
-			.left, .right {width:49.5%; display:inline-block; vertical-align:top; 
-				em {margin-top:1em}
-				span.name {margin-top:0.5em}
-				p {font-size:1.2em; position:relative}
-			}
-
-			.center .asesor, .left .card, .right .card {
-				a.twitter { position:absolute; bottom:-1em; left:50%; margin-left:-1em; z-index:2;
-					img {width:2em; height:auto; border:none; margin-right:0}
-				}
-				border:1px solid transparent;
+				&.twitter img {top:5px}
 				&:hover {
-					border:1px solid #ccc;
-					@include transform(scale(1.3)); z-index:5;
-				}
-			}
-			.left .card { a.twitter { right:14%; bottom:-2em; margin-left:1em; } }
-			.right .card { a.twitter { left:auto; left:10%; bottom:-2em; margin-left:1em; } }
-
-			.left {text-align:right; width:47.5%; padding-right:1%; border-right:1px solid #999; margin-right:1%;
-				.asesor {
-					.portrait {margin-left:0.5em}
-					p {text-align:right; 
-						@include linear-gradient(to right, $transparent, #CBBFAE);
-						padding:0.8em; padding-left:0;
-						/*left:-60em;*/
-					}
-				}
-				.card {margin-left:1em;
-					img {margin-bottom:0.4em; margin-right:0.8em;}
-				}
-			}
-			.right {text-align:left;
-				.card {margin-right:1em;
-					img {margin-bottom:0.4em; margin-left:0.8em;}
-				}
-				.asesor {text-align:left;
-					.portrait {text-align:left; 
-						img {margin-right:0;}
-					}
-					p {
-						/*left:60em;*/
-						@include linear-gradient(to left, $transparent, #CBBFAE);
-						padding:0.8em; padding-right:0;
-					}
+					img.color {opacity:1}
 				}
 			}
 		}
 	}
-
-	/* ;MEDIOS */
-	&.medios { background:#fff; z-index:2;
-		h1 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; font-size:7em; text-align:center; margin-top:0.2em; margin-bottom:0.35em; text-transform:uppercase; letter-spacing:0;
-			strong {font-family:"FF Meta W01", Helvetica, Arial, sans-serif}
+	$bottomHeight:420px;
+	.bottom {break:none; color:white; text-align:center; background:#214e64 url(../img/bkg/that-kinda-blue.jpg); height:$bottomHeight; overflow:hidden; position:relative;
+		.left, .middle, .right {display:inline-block; width:33%; max-width:500px; height:$bottomHeight; overflow:hidden}
+		.front {position:relative; width:100%; height:100%;
+			h2 {position:absolute; bottom:0; font-size:2em;}
 		}
-		.carton { position:absolute; right:-27em; top:44em; z-index:5;
-			img {width:25em; box-shadow:0.2em 0.2em 0.2em #aaa; @include transition(all 1s ease); position:relative; @include transform(rotate(-10deg)); }
-			&.carton9abr {top:24em; 
-				img { @include transform(rotate(10deg)); }
+		.left, .right { opacity:0.9; position:relative;
+			.hover {position:absolute; top:$bottomHeight; height:$bottomHeight/2; width:100%; @include transition(all 1s ease);}
+			&:hover {opacity:1;
+				.hover {top:$bottomHeight/2}
 			}
-			&:hover, &.carton9abr:hover {
-				img {
-					@include transform(scale(1.3) rotate(0));
+		}
+		.left {background:#393440 url(../img/bkg/kuma-degradado-rojo.jpg) no-repeat; background-size:auto 100%;
+			background-position:left top;
+			position:absolute; top:0; left:0;
+			.front h2 {left:10%; text-align:left; @include transition(all 1s ease);}
+			.hover { background:#C94A50; 
+				.porque {margin:2em; text-align:left;
+					a {text-decoration:underline;}
+					a:hover {color:black}
 				}
 			}
-			&:hover {z-index:10}
-		}
-		.ferrizStill { position:absolute; right:-27em; top:9em; z-index:5; 
-			img {width:25em; box-shadow:0.2em 0.2em 0.2em #aaa; @include transition(all 1s ease); position:relative; @include transform(rotate(-10deg)); }
 			&:hover {
-				img { @include transform(scale(1.3) rotate(0)); }
+				.front h2 {bottom:$bottomHeight*0.7; left:45%;}
 			}
 		}
-		.logos { text-align:center; margin:0 auto; margin-top:1em; width:90%; overflow:scroll; height:7.5em;
-			a { opacity:0; }
-			img {height:2.6em; display:inline-block; margin:0.8em 1.66em; vertical-align:middle; @include transition(all 0.2s ease);}
-			a:hover {
-				img { @include transform(scale(1.3)); }
+		.middle {width:36%; text-align:center; position:relative;
+			.front { @include transition(all 1s ease); z-index:2;
+				/*background:#63CABB url(../img/bkg/newsletter.jpg) center bottom no-repeat; background-size:100%;*/
+				background:#204e63 url(../img/bkg/seisMeses-participacion.png) no-repeat; background-size:auto auto;
+				background-position:center bottom; 
+				.seisMeses { background:#005063; height:180px; width:100%;
+					img {margin-top:15px; opacity:0.5; width:90%;}
+					&:hover img { opacity:1; }
+				}
 			}
-			a.void {cursor:default}
+			&:hover { 
+				.front {opacity:0}
+			}
+			.hover { position:absolute; top:0; left:0; width:100%; height:$bottomHeight; z-index:1;
+				.giphy-embed {width:100%; height:auto;}
+			}
 		}
-		.citas { display:block; width:100%; font-size:1.3em; margin:0 auto; padding:0.64em 0; position:relative; background:$crema url(/img/ui/kumatile.jpg); 
-			.medio {text-decoration:none; color:black; overflow:hidden; text-align:center; font-family:"L Futura W01", Helvetica; display:block; margin:0; margin-right:8em;position:relative;
-				a {text-decoration:none; color:#000}
-				.copy { display:inline-block; width:40em; vertical-align:top; 
-					a { padding:0.8em; display:inline-block; text-align:left; width:40em; vertical-align:top;
-						.source { text-align:right; color:#999; margin-top:0.64em;
-							em {color:#379088}
-						}
-						&:hover {background:#fff}
-						strong {@include transition(all 2s ease);}
-					}
+		.right {background:#393440 url(../img/bkg/wallace.jpg) no-repeat; background-size:auto 100%;
+			background-position:right top; 
+			position:absolute; top:0; right:0;
+			.front h2 {right:10%; text-align:right}
+			.hover { top:-$bottomHeight*0.4; 
+				.suscribete {background:#62CABB; width:100%; height:$bottomHeight*0.4;
+					h2 {margin:0; padding-top:0.8em}
+					input {display:block; width:80%; margin:0.5em auto; height:1.5em; line-height:1.5em; font-size:1.5em; color:#7A9B91; text-align:center}
 				}
-				.asesor {display:none}
-				div.logo {display:inline-block; width:25%; text-align:right; height:3.2em;
-					img {width:25em; margin-top:1em; margin-right:2em; @include transition(all 0.2s ease);}
-				}
-				
-				&.maspormas {left:-96em;
-					div.logo img {width:20em; margin-right:4em}
-				}
-				&.milenio {left:96em}
-				&.informador {left:-96em}
-				&:hover {
-					div.logo {
-						img {
-							@include transform(scale(1.1) rotate(0));
-						}
-					}
-				}
-				&.yonofui {left:-96em;
-					div.logo {font-size:1.2em; overflow:visible; height:5em; padding-top:1em;
-						a {margin-right:2.5em;
-							img {width:5em; height:5em; vertical-align:Middle; margin-right:0; margin-left:1em; margin-top:0; border:1px solid #999; z-index:3}
-						}
-					}
-					&:hover div.logo img { @include transform(scale(1.3) rotate(0)); }
-					img.twitter {height:1em; float:left; margin-left:-1.9em; margin-top:1em}
-				}
+			}
+			&:hover {opacity:1;
+				.hover {top:0}
 			}
 		}
 	}
-
-	/* ACERCA DE */
-	&.acercade { text-align:center; z-index:1; position:relative;
-		h1 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; font-size:7em; text-align:center; margin:0; text-transform:uppercase; opacity:0;
-			position:absolute; top:0.2em; left:0; z-index:2; color:#fff; width:50%; text-align:center;
-			strong {font-family:"FF Meta W01", Helvetica, Arial, sans-serif}
-		}
-		.yo-kuma { overflow:hidden;
-			.foto { width:50%; overflow:hidden; float:left; text-align:right;
-				img {height:100%; position:relative; top:0; left:0; margin-top:6em; /*-webkit-filter:grayscale(1); transition: all 2s ease;*/}
-			}
-			.copy { width:50%; float:left; text-align:left; position:relative; font-family:"L Futura W01", Helvetica; overflow:hidden;
-				strong, b {@include transition(all 2s ease);}
-				p {width:70%; text-align:left; font-size:1.5em; margin-left:7em;}
-				p:nth-of-type(1) { margin-top:4.5em; }
-				/*p:nth-of-type(2) { margin-top:60px; }*/
-			}
-			.todos {width:50%; position:absolute; bottom:0; left:50%}
-		}
-	}
-
-	/* MAPA */
-	&.mapa { background:#555; text-align:center; position:relative;
-		h1 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-size:4em; text-align:center; text-transform:uppercase; margin:0}
-		h2 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; font-size:1.7em; text-align:center; text-transform:uppercase; margin:0}
-		h3 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-size:2em; text-transform:uppercase; margin-top:0.5em; margin-bottom:0.83em}
-		a.mapa img {width:100%; position:absolute; top:-5em; left:0}
-		.copy { position:absolute; top:2.5em; right:-32.5em; background:#fff; padding:2.5em; z-index:3; box-shadow:0 0.25em 0.417em #999;
-			.data-maps img {
-				@include transition(all 0.2s ease);
-				height:12.5em; width:8.17em; margin:0.83em; background-repeat:no-repeat;
-				&:hover{ @include transform(scale(1.2)); }
-			}
-		}
-	}
+	h1 {color:white}
 }
 
-/************************** ;PROPUESTAS **************************/
-.propuestas {
-	.screen {
-		p strong {color:rgb(200, 112, 114);}
-		ol {margin-top:0;
-			strong {color:#379088}
-		}
-		h1 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; font-size:7em; text-align:center; margin:0;
-			z-index:2; color:#000; width:100%; text-align:center; margin-top:0; line-height:1em;
-		}
-		&.toc {position:relative;
-			.ciudad, .gobierno {width:49.9%; display:inline-block; text-align:center; vertical-align:top;
-				h2 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-size:3.5em; font-weight:200; text-transform:uppercase; margin-bottom:0.2em;
-					a {
-						color:black; display:block; line-height:2em;
-						@include linear-gradient(to right, $transparent, #EACCCC);
-						&:hover {
-							img {@include transform(scale(1.3));}
-						}
-					}
-					strong {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:bold}
-					span {width:4.4em; display:inline-block; position:relative;
-						img {vertical-align:middle; height:3em; margin:0; position:absolute; top:-2.1em}
-					}
-				}
-				h3 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-size:2.5em; width:100%; text-align:left; margin:0; font-weight:200;
-					a {color:black; height:1.7em; display:block; margin:1.9em 0; 
-						@include linear-gradient(to right, $transparent, #E2DACF);
-						span {display:inline-block; width:6em; text-align:center; position:relative; 
-							img {position:absolute; top:-2em; left:0.8em}
-						}
-						&:hover {
-							@include linear-gradient(to right, $transparent, #C5B39A);
-							img {@include transform(scale(1.3));}
-						}
-					}
-					strong {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:bold}
-				}
-				a {text-decoration:none;
-					img {height:3em; vertical-align:middle}
-				}
-			}
-			.ciudad {
-				h2, h3 {text-align:right;}
-				h2 a img {margin-left:0.5em; left:0}
-				h2 a:hover {
-					@include linear-gradient(to right, $transparent, #D86D74);
-				}
-				h3 a img {margin-right:1em}
-			}
-			.gobierno {
-				h2 {text-align:left;
-					a {
-						@include linear-gradient(to left, $transparent, #DAECE8);
-						img {margin-left:0.8em; margin-right:0.6em; left:-0.2em;}
-						&:hover {
-							@include linear-gradient(to left, $transparent, #93D2C8);
-						}
-					}
-				}
-				h3 {
-					a { @include linear-gradient(to left, $transparent, #E2DACF);
-						span img {left:1.8em}
-						&:hover {@include linear-gradient(to left, $transparent, #C5B39A);}
-					}
-					&.contrapeso a img {height:2.2em; top:-1.5em}
-				}
-			}
-		}
-		&.ciudad, &.gobierno {
-			h1 {position:absolute; top:1em; left:0; font-size:9em;  color:white;
-				/*text-shadow:0.03em 0.03em white;*/
-				img {height:2.5em; vertical-align:middle}
-			}
-			img.gobierno, img.ciudad {position:absolute; top:0; left:0; z-index:1; height:100%}
-			div.copy {position:absolute; bottom:3em; right:4em; z-index:2; background-color:rgba(255, 255, 255, 1);
-				padding:1em 3em; font-size:1.4em; font-family:"L Futura W01", Helvetica; width:30em;
-				strong {font-size:1em}
-				b {color:#379088}
-			}
-		}
-		&.gobierno { position:relative;
-			h1 {position:absolute;  z-index:2; }
-		}
-		&.democratica, &.sostenible, &.incluyente, &.personas, &.excelencia, &.contrapeso {background:#eee;
-			.video, .fb, .text {width:33%; display:inline-block; vertical-align:top; height:100%; overflow:hidden}
-				.video {width:28%}
-				.text {width:38%}
-			.video {background:#ccc; position:relative;
-				img {position:absolute; top:0; left:0; width:720px; height:1280px}
-			}
-			.fb { border-left:1px solid #ccc; text-align:center;}
-			.fb img {width:511px}
-			.text { background:$crema url(/img/ui/kumatile.jpg);
-				h2 {text-transform:uppercase; font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-size:3em; width:100%; 
-					margin-top:0.5em; margin-bottom:0; margin-left:10em; padding:0.2em 0; font-weight:200;
-					background:transparent; text-align:left;
-					img {height:1.5em; vertical-align:middle; margin-right:0.3em; }
-					a {text-decoration:none; color:#000;
-						img.kumalogo {position:absolute; height:4.2em; left:5.5em; top:0.5em}
-						&:hover {
-							img {@include transform(scale(1.1));}
-						}
-					}
-				}
-				h1 {text-align:left; margin-left:0; margin-top:0; padding:0.4em 0; padding-top:0.2em; padding-left:6em; font-size:5em; @include linear-gradient(to left, $transparent, #EACCCC, $transparent);}
-				div.icono { margin:2em auto; text-align:center;
-					img {width:25em;
-						&:hover {@include transform(scale(1.2));}
-					}
-				}
-				p, ol li {margin:0 2em; padding:0.7em 1em; padding-bottom:0.3em}
-				p {margin:0; padding:1.5em 3em; padding-left:5em; padding-top:1em}
-				p, ol {width:60%; margin:0 auto;}
-				p.propuestas {padding:0.5em 4.1em}
-
-				.nota-fb {text-decoration:none;
-					img.fb-icon {width:2em; vertical-align:bottom}
-					img.youtube-still {float:left; width:12em; margin-right:1em}
-				}
-
-				ol li {margin-top:0; margin-left:4em}
-				.confetti {text-align:center; display:block;
-					img {width:35em; margin:1em 0; margin-top:0.4em;}
-				}
-			}
-		}
-		&.personas, &.excelencia, &.contrapeso {
-			.text {
-				h2 {background:transparent}
-				h1 {@include linear-gradient(to left, $transparent, #BBDAD3, $transparent);}
-			}
-		}
-	}
+.cleanser {background:#ccc; text-align:center; font-weight:bold; text-align:center;
+	h2 {margin:0; padding:0; font-size:1.5em; color:black; padding:1.5em 0}
+	a {color:black; text-decoration:underline}
+	a:hover {color:#FA5651;}
 }
 
-/************************** ;PRINCIPIOS **************************/
-.principios { vertical-align:top;
-	h2 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:normal; font-size:5em; text-align:center; margin:0.7em 0; color:#000; text-align:center; }
-	.screen {
-		.text { width:69%; height:100%; display:inline-block; vertical-align:top; position:relative;
-			h2 {font-size:4.5em; padding-left:1.9em}
-			a.inicio {text-decoration:none; color:#000}
-			img.kumalogo {position:absolute; height:11.5em; left:19em; top:4em}
-		}
-		.fb {width:30%; display:inline-block; vertical-align:top; height:100%; overflow:hidden; max-width:550px; text-align:center; border-left:1px solid #ccc;
-			/*img {width:511px}*/
-		}
-
-		&.toc {
-			.ciudad h2 {font-size:6em; color:white; margin:0; text-align:left}
-			.lista {width:100%; padding:0; margin:0; text-align:center;
-				a { display:inline-block; margin:0.75em 0; font-size:3.5em; line-height:1.7em; color:#000; text-decoration:none; font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; text-align:left;
-					span {width:4em; display:inline-block; text-align:center; position:relative;
-						img {height:2.5em; vertical-align:middle; position:absolute; top:-1.5em; left:0.3em}
-					}
-					&:hover {
-						img { @include transform(scale(1.2)); }
-					}
-					&.colectiva {
-						@include linear-gradient(to right, $transparent, #B7D8D4);
-						span {width:4.5em;}
-						&:hover {@include linear-gradient(to right, $transparent, #5fc5b8);}
-					}
-					&.participacion {@include linear-gradient(to right, $transparent, #C2DBE4);
-						&:hover {@include linear-gradient(to right, $transparent, #8cb7c7)}
-					}
-					&.apertura {@include linear-gradient(to right, $transparent, #B4B4BB);
-						&:hover {@include linear-gradient(to right, $transparent, #626264);}
-					}
-					&.innovacion {@include linear-gradient(to right, $transparent, #EDAC9C);
-						&:hover {@include linear-gradient(to right, $transparent, #d6765e)}
-					}
-					&.transparencia {@include linear-gradient(to left, $transparent, #E8A3A7);
-						&:hover {@include linear-gradient(to left, $transparent, #c8595f)}
-					}
-					&.derechos {@include linear-gradient(to left, $transparent, #EDC2D4);
-						&:hover {@include linear-gradient(to left, $transparent, #d98ead)}
-					}
-					&.genero {@include linear-gradient(to left, $transparent, #DBCCE0);
-						&:hover {@include linear-gradient(to left, $transparent, #b8a6be)}
-					}
-				}
-				.left, .right {width:49%; display:inline-block; vertical-align:top; text-align:left}
-				.left {text-align:right;
-					a {text-align:right; padding-left:1em;
-						&.apertura img {left:0.6em}
-						&.innovacion img {left:0.7em}
-					}
-				}
-				.right {
-					a {padding-right:1em; margin-left:1em;
-						img {left:0.8em}
-					}
+$alturaNovedades:200px;
+.novedades {
+	.novedad {display:block; height:$alturaNovedades; line-height:$alturaNovedades; text-align:left;
+		.arrow { display:inline-block; width:45%; text-align:right; height:$alturaNovedades; line-height:$alturaNovedades;
+			max-width:650px; @include transition(all 1s ease);
+			.chevron {
+				float:right;
+				margin-right:-$alturaNovedades/2;
+				margin-left:0;
+				display:inline-block;
+				vertical-align:middle;
+				width: 0; 
+				height: 0; 
+				border-top: $alturaNovedades/2 solid transparent;
+				border-bottom: $alturaNovedades/2 solid transparent;
+				border-left: $alturaNovedades/2 solid transparent;
+			}
+			.text {display:inline-block; font-size:1.7em; line-height:1em; vertical-align:middle; color:white;
+				h1 {font-size:1em; margin:0; font-weight:normal}
+				.links {text-align:center; font-size:0.7em; visibility:hidden; @include transition(all 1s ease); margin-top:1em;
+					a {text-decoration:underline; color:black; display:inline-block; margin-right:1em}
 				}
 			}
 		}
-
-		&.colectiva, &.participacion, &.apertura, &.innovacion, &.genero, &.derechos, &.transparencia {position:relative;
-			.confetti {text-align:center; display:block;
-				img {width:35em; margin:1em 0; margin-top:0.4em}
-			}
-			p {font-size:1.5em; width:60%; margin:0 auto; margin-bottom:0.6em;
-				strong {font-size:1.2em; display:block; margin-bottom:0.6em}
-			}
-			h2 {line-height:1.4em; padding-bottom:0.2em; margin-top:0; text-align:left; padding-left:7.05em}
-			h3 {text-transform:uppercase; font-weight:200; text-align:left; width:100%; margin:0; margin-left:10.6em; padding:0.5em 0; padding-top:1.5em; font-size:3em}
-			.text > .icono {text-align:center;
-				img {margin-top:4em; width:35em;
-					&:hover { @include transform(scale(1.2)); }
-				}
-			}
-		}
-		
-		&.colectiva { 
-			h2 {@include linear-gradient(to left, $transparent, #5fc5b8, $transparent);}
-			.text > .icono img {width:40em}
-		}
-		&.participacion {
-			h2 {@include linear-gradient(to left, $transparent, #8cb7c7, $transparent);}
-		}
-		&.apertura {
-			h2 {@include linear-gradient(to left, $transparent, #626264, $transparent); color:white;}
-			.text > .icono img {width:30em}
-		}
-		&.innovacion {
-			h2 {@include linear-gradient(to left, $transparent, #d6765e, $transparent);}
-			.text > .icono img {width:30em}
-		}
-		&.transparencia {
-			h2 {@include linear-gradient(to left, $transparent, #c8595f, $transparent); line-height:1.1em}
-			.text > .icono img {width:25em}
-		}
-		&.derechos {
-			h2 {@include linear-gradient(to left, $transparent, #d98ead, $transparent);}
-			.text > .icono img {width:30em}
-		}
-		&.genero {
-			h2 {@include linear-gradient(to left, $transparent, #b8a6be, $transparent);}
-		}
-	}
-}
-
-/************************** ;COMPROMISOS **************************/
-.compromisos {
-	.screen { overflow:hidden;
-		.fb, .text {display:inline-block; vertical-align:top; height:100%; overflow:hidden}
-		.fb {width:30%; max-width:550px; border-left:1px solid #aaa; text-align:center; overflow:scroll;
-			.fb-container {width:95%; margin:0 auto; margin-top:1em}
-		}
-
-		&.toc { text-align:left;
-			/*h2 {color:rgb(200, 112, 114);}*/
-			p { font-family:Helvetica; font-size:1.5em; width:30em; margin:1.5em auto; text-align:left;
-				a, strong {color:rgb(200, 112, 114);}
-				b {color:#379088}
-			}
-			div.toc {text-align:left; margin-top:8em;
-				a {display:inline-block; width:49.9%; font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-size:5em; font-weight:200; text-decoration:none; margin:0; color:black; 
-					span {position:relative; width:4.8em; display:inline-block;
-						img {vertical-align:middle; height:2.5em; margin:0 1em; position:absolute;}
-					}
-					&:hover {
-						img {@include transform(scale(1.2));}
-					}
-				}
-				a.en-campanha { text-align:right;
-					@include linear-gradient(to right, $transparent, #EACCCC);
-					img {text-align:right; height:2.1em; top:-1.5em; left:-0.7em}
-					&:hover {
-						@include linear-gradient(to right, $transparent, #D86D74);
-					}
-				}
-				a.en-el-congreso {text-align:left;
-					@include linear-gradient(to left, $transparent, #DAECE8);
-					span {width:4em;
-						img {top:-2em; left:-0.2em}
-					}
-					&:hover {
-						@include linear-gradient(to left, $transparent, #93D2C8);
-					}
-				}
-			}
-		}
-		/*.infografia { width:30%; height:100%; display:inline-block; text-align:center; background:#B3D7DA;*/
-			/*img {width:80%; margin-top:5em}*/
-		/*}*/
-		.text { /*width:69.5%; display:inline-block; vertical-align:top;*/
-			a.inicio {text-decoration:none}
-			img.kumalogo {position:absolute; height:13em; left:11em; top:2.5em}
-			h2 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; font-size:6em; text-align:left; margin:0;
-				color:#000; width:100%; padding-left:1em; line-height:1.5em; padding-left:4.25em;
-			}
-			h3 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; font-size:3em; margin:0; 
-				text-transform:uppercase; color:#000; width:100%; text-align:left; margin-left:8.6em; margin-top:0.8em; margin-bottom:0.2em;
-			}
-			ol { font-size:1.5em; font-family:Helvetica; margin:0 auto; margin-top:2em; counter-reset:item; width:65%; 
-				&.congreso {counter-reset:item 7;}
-				li:before {
-					content: counter(item) ". ";
-					counter-increment: item;
-				   color: #999;
-					display:inline-block;
-					width:3em;
+		&.reverse { text-align:right;
+			.arrow {text-align:left;
+				.chevron {
 					float:left;
-					margin-left:-7em;
-					text-align:right;
-				}
-				li {padding:0.5em 1em; display:block; line-height:1.2em;
-					strong {color:rgb(200, 112, 114);}
-					img.bullet {float:left; width:1.5em; margin-left:-3em;}
-				}
-				span.hidden {font-size:0.9em; padding-left:2em; padding-right:1em}
-				li.menos {
-					a.leer-mas {margin-left:2em}
-				}
-			}
-			/*span.hidden, span.menos {display:none}*/
-			/*span.hidden {font-size:80%}*/
-			/*a.leer-mas { text-transform:uppercase; text-decoration:none; color:black; background:#e9eaed; display:inline-block; padding:.5em 1em; font-size:0.7em;*/
-				/*font-family:"FF Meta W01", Helvetica, Arial, sans-serif;*/
-				/*&:hover {text-decoration:underline; background:#555; color:#fff;}*/
-			/*}*/
-			/*&.leer-mas {height:100%;*/
-				/*span.hidden, span.menos {display:inline}*/
-				/*span.summary {display:none}*/
-				/*a.leer-mas {background:#ccc}*/
-				/*span.mas {display:none}*/
-				/*ol {font-size:1.4em;}*/
-				/*li {margin-top:1em; margin-bottom:1em}*/
-				/*.fb {display:none}*/
-			/*}*/
-			/*.fb { background:#e9eaed; text-align:center; border-top:1px solid #ccc; overflow:hidden}*/
-		}
-		&.campanha, &.congreso {
-			.nota-fb img {width:1.5em; vertical-align:middle}
-			.icono { text-align:center; margin-top:5em;
-				img {height:20em;
-					&:hover {@include transform(scale(1.2));}
-				}
-			}
-			.text .hidden .icono {margin-top:0;
-				img {
-					height:3em; float:left; margin-left:-4em; margin-top:1em;
+					margin-right:0;
+					margin-left:-$alturaNovedades/2;
+					border-left-width:0;
+					border-right:$alturaNovedades/2 solid transparent;
 				}
 			}
 		}
-		&.campanha {
-			h2 {
-				@include linear-gradient(to left, $transparent, #EACCCC, $transparent);
+		&:nth-child(1) { 
+			background:#8C424C url(../img/bkg/70-renuncia.jpg) no-repeat; background-size:auto auto; background-position:right 0;
+			@include transition(background-position-y 3s ease);
+			&:hover { background-position:right -400px;
+				.arrow {width:40%}
+			}
+			.arrow {background:#FB524E;
+				.chevron  {border-left-color:#FB524E}
+			} 
+		}
+		&:nth-child(2) {
+			background:#3D797E url(../img/bkg/razonamiento.jpg) no-repeat; background-size:auto auto; background-position:0 0;
+			@include transition(all 1.5s ease);
+			&:hover { background-position:0 -200px;
+				.arrow {width:35%}
+			}
+			.arrow {background:#5CCAC6;
+				.chevron  {border-right-color:#5CC9C6}
+			} 
+		}
+		&:nth-child(3) { 
+			background:#AB7C22 url(../img/bkg/del-congreso-a-las-calles.jpg) no-repeat; background-size:auto auto; background-position:right 0;
+			@include transition(background-position-y 1.5s ease);
+			&:hover { background-position:right -200px;
+				.arrow {width:30%}
+			}
+			.arrow {background:#E8A41D;
+				.chevron  {border-left-color:#E8A41D}
+			} 
+		}
+		&:nth-child(4) { 
+			background:#2D614A url(../img/bkg/sin-voto-no-hay-dinero.jpg) no-repeat; background-size:auto auto; background-position:0 0;
+			@include transition(all 3s ease);
+			&:hover { background-position:0 -600px;
+				.arrow {width:35%}
+			}
+			.arrow {background:#3BAD66;
+				.chevron  {border-right-color:#3BAD66}
+			} 
+		}
+		&:hover {
+			.text .links {visibility:visible}
+		}
+	}
+}
+.equipo-kuma {background:white; height:30em; overflow:hidden;
+	div.equipo-strip { margin-bottom:1em; height:6em; position:relative;
+		.fleft, .fright { position:absolute; top:0; height:30em; }
+		.fleft {left:0}
+		.fright {right:0}
+		a {text-decoration:underline; display:inline-block; padding:0.3em 0; position:relative; height:3em; width:400px; color:black; 
+			font-size:2em; line-height:4em;
+			img {width:50px; position:absolute; top:1.5em; left:0.7em; vertical-align:middle;
+				&.gray {z-index:1}
+				&.color {z-index:2; opacity:0; @include transition(all 1s ease);}
 			}
 		}
-		&.congreso {
-			h2 {
-				@include linear-gradient(to left, $transparent, #BBDAD3, $transparent);
-			}
-			.icono {margin-top:1.3em}
+		a:hover {color:#FA5651;
+			img.color {opacity:1}
 		}
-		&.bienvenida {position:relative;
-			img.kuma-benji {position:absolute; top:0; left:0}
-			div.copy {position:absolute; bottom:3em; right:4em; z-index:2; background-color:rgba(255, 255, 255, 1);
-				padding:1em 3em; font-size:1.5em; font-family:"L Futura W01", Helvetica; width:30em;
-				strong {color:rgb(200, 112, 114); font-size:1em}
-				b {color:#379088}
+	}
+	div.listado {clear:both; margin:0 auto; width:900px;
+		a {color:#3366BB}
+		div.half {float:left; width:47%;
+			&.left {text-align:right; margin-right:5%;}
+			&.right {text-align:left}
+			div {margin:1em 0; margin-bottom:2em;
+				strong {font-size:1.2em}
+				span {display:block; font-variant:small-caps; font-size:1.1em}
+				em {display:block;}
 			}
 		}
 	}
 }
 
-.propuestas, .compromisos, .principios {
-	.fb {position:relative;
-		background:#cfe3e9 url(/img/ui/muros-fb.jpg); background-size:100%; background-position:0 bottom; background-repeat:no-repeat;
-		.fb-container { background:rgb(228, 244, 249); padding:1% 2.5%; margin-top:1em; position:relative; z-index:2; margin-bottom:25em}
-		.fb-phrase {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; width:100%; text-align:center; color:#91AFB8; position:absolute; z-index:1; bottom:10em; font-size:2.5em; line-height:0.95em;
-			small {display:block; width:75%; margin:0 auto; margin-top:1.5em; font-style:italic; font-size:0.7em}
+.iniciativas {
+	background:#1A2A35 url(../img/bkg/iniciativas.jpg) no-repeat; background-size:100% auto;
+	height:300px;
+}
+
+.footer { color:white; text-align:center; background:#1A2A35; height:250px; padding-top:2em; font-size:1.2em;
+	a {display:inline-block; padding:0.3em 2em; position:relative; height:60px;
+		img {width:45px; position:absolute; top:0; left:0; vertical-align:middle;
+			&.white {z-index:1}
+			&.color {z-index:2; opacity:0; @include transition(all 1s ease);}
 		}
+		&.twitter img {top:5px; width:60px}
+		&.facebook img {width:60px}
+		&.correo img {left:-15px; top:-2px}
+		&.telefono img {left:-15px; top:-5px}
+		&:hover {
+			img.color {opacity:1}
+		}
+		&.campaña {font-size:0.7em; text-decoration:underline}
 	}
 }
 
 
-/************************** ;LEER MAS **************************/
-.propuestas, .compromisos {
-	.copy, .text {
-		p.mas, li.mas, p.menos, li.menos { cursor:pointer;
-			span.mas span.label {display:none}
-			&:hover {background:#fff;
-				a.leer-mas {background:#b4b0ab}
-				a.leer-mas:hover {background:#8b8884; text-decoration:none}
-				/*span.mas span.label {display:inline}*/
-			}
-		}
-		p.mas, li.mas {
-			span.hidden, span.menos {display:none}
-			span.mas {display:inline}
-		}
-		p a, ol li a {color:#000; font-weight:200;
-			&:hover, &:hover b, &:hover strong { color:rgb(200, 112, 114); }
-		}
-		p.menos, li.menos { background:#dfd8ce;
-			span.hidden, span.menos {display:inline}
-			span.hidden {margin:0.5em 0}
-			a.leer-mas {background:#ccc}
-			span.mas {display:none}
-		}
-		a.leer-mas { text-transform:uppercase; text-decoration:none; color:black; background:#E0DCD5; display:inline-block; padding:0 0.4em; padding-bottom:0.1em;
-			margin-left:0.2em; vertical-align:top; font-family:"FF Meta W01", Helvetica, Arial, sans-serif;
-			&:hover {text-decoration:underline; color:#fff; }
-		}
-		.propuestas, p strong {font-weight:bold; font-size:1.2em; }
-		p.propuestas {padding:0.7em 2em; padding-left:4em; margin-top:1em}
-		li strong {font-weight:bold; color:#379088}
-	}
-			
-	
-	.copy { font-size:1.2em; position:relative; margin:0; margin-top:1em;}
-	.text {
-		span.hidden i {font-style:normal; display:inline}
-		span.hidden, span.menos {display:none}
-		b {color:black}
-
-		.left, .right {display:inline-block; vertical-align:top}
-		.left {width:30%; text-align:center;
-			img {height:16em;}
-		}
-		.right {width:60%}
-	}
-}
-
-/************************** ;HEADER **************************/
-.header {padding-top:6em; padding-bottom:4em; position:relative; z-index:2; font-size:1em; overflow:hidden;
-	.azulejo-top {position:absolute; z-index:1; width:110%; left:-2%; top:-22%; }
-	.pedro-kumamoto {width:49.5%; padding-left:4em; margin:0 auto; display:inline-block; vertical-align:middle; position:relative; z-index:2;
-		a {text-decoration:none; color:black; display:block;
-			.kumalogo {float:left; margin-right:0.5em; height:17.2em; margin-top:-1.2em; position:relative; z-index:3}
-			h1 {padding-top:0; margin-top:0; font-size:10em; line-height:0.6em; font-family:"Lemon/Milk", Helvetica, Arial; margin-bottom:0; 
-				position:relative; color:transparent; text-align:left;
-				img {height:0.5em; vertical-align:middle}
-				&.kumamoto {font-size:11em}
-			}
-			h2 {padding-top:0; margin-top:0.4em; font-size:1.6em; line-height:0.6em; font-family:"FF Meta W01", Helvetica, Arial, sans-serif; margin-bottom:0; text-align:left;
-				font-weight:200; color:black;
-			}
-			&:hover {text-decoration:underline; @include transform(scale(1.05)); }
-		}
-	}
-	.where { width:45%; display:inline-block; vertical-align:middle; position:relative; z-index:2;
-		h1 {font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; font-size:7em; text-align:center; margin:0;
-			z-index:2; color:#000; width:100%; text-align:center; margin-top:0; line-height:1em;
-		}
-	}
-}
-
-#fullpage {
-	.header .where h1 > div {display:none}
-	.header .where h1 > div.active {display:inline-block}
-}
-
-/************************** ;NAVBAR **************************/
-.navbar {background:transparent; position:absolute; bottom:0; overflow:hidden; height:9.3em; width:100%; z-index:4;
-	a {text-transform:uppercase; display:inline-block; line-height:1.15em; height:5.6em; font-size:5.5em; text-decoration:none; color:#4A746D; float:left; text-align:center; width:33%; text-align:center; font-weight:200; font-family:"FF Meta W01", Helvetica, Arial, sans-serif; position:relative; bottom:-12em; z-index:1;
-		@include user-select(none);
-
-		&.principios  {background:#67B2A4; }
-		&.propuestas  {background:#4E7B74; color:#283F3A; font-weight:bold; height:6em; font-size:6.7em; line-height:1.3em; box-shadow:0 0.12em 0.36em #1B342F; z-index:2}
-		&.compromisos {background:#67B2A4; letter-spacing:-0.03em; }
-		&:hover, &.active {background:#CD5560; color:#fff; }
-		&.principios, &.compromisos { margin-top:0.4em; }
-	}
-	a.principios { width:30%;
-		a.principios {background:#9b4b52; color:#fff;}
-	}
-	a.compromisos {
-		a.compromisos {background:#9b4b52; color:#fff;}
-	}
-	a.propuestas {width:37%;
-		a.propuestas {background:#9b4b52; color:#fff;}
-	}
-}
-
-/************************** ;GOODBYE **************************/
-#goodbye { position:absolute; bottom:-8em; background:#333; height:5em; line-height:4em; width:100%; text-align:center; color:#fff; font-family:"FF Meta W01", Helvetica, Arial, sans-serif; z-index:10; @include transition(all 1s ease);
-	&.emerge {bottom:-0.4em}
-	h1 {display:inline-block; margin:0; font-size:2.5em; height:100%; margin-right:1.5em; vertical-align:middle;
-		span {display:inline-block; margin-top:0.1em}
-	}
-	span.linea-kumamoto {font-size:2em; 
-		a {color:#fff !important; text-decoration:none}
-		strong {text-transform:uppercase; font-weight:200; margin-left:0.4em; vertical-align:middle; display:inline-block}
-	}
-	img {vertical-align:middle; height:2.5em}
-	img.whatsapp {height:1.25em}
-	.redes {display:inline-block; margin:0 2em; padding:0 1em; margin-right:1.5em;
-		img {margin-right:1.1em}
-		.fb { margin-right:10.5em;
-			img {position:absolute; height:8em; top:-2.8em}
-		}
-	}
-	span.correo {font-size:1.5em; margin-right:1.5em; display:inline-block;
-		a {color:#fff !important; text-decoration:none; font-weight:200}
-	}
-	.wikipolitica {display:inline-block; }
-}
-
-
-
-/************************** ;KIT KUMAMOTO **************************/
-.kit {
-	a {color:black}
-	div.toc { background:$crema url(/img/ui/kumatile.jpg); padding:2em 0; font-size:1.2em;
-		p {width:80%; margin:0 auto;
-			big {font-size:1.5em}
-		}
-		ul {font-size:1.5em; width:80%; margin:1em auto;
-			li {margin:0.5em 0; list-style-type:none;
-				a {
-					span {display:inline-block; width:4em; text-align:center;
-						img {height:2em; vertical-align:middle}
-					}
+/* TOPBAR */
+body.topbarDocu {margin:0; padding:0;
+	.topbar {background:#54A593; color:white; height:10%; line-height:10%; font-size:40px; font-family:sans-serif;
+		a {text-decoration:none;
+			&.logo {height:100%; display:inline-block; background-color:#3D6961; vertical-align:middle;
+				img.blanco {display:none}
+				&:hover {background-color:#C23D4C;
+					img.negro {display:none}
+					img.blanco {display:inline}
 				}
 			}
 		}
+		img {height:80%; margin:0 20px; margin-top:10px; vertical-align:middle;}
+		.title {display:inline-block; vertical-align:middle}
 	}
-	.content {width:80%; margin:0 auto;
-		p {font-size:1.2em}
-		h1 {
-			font-family:"FF Meta W01", Helvetica, Arial, sans-serif; font-weight:200; font-size:4em; text-align:left; margin:0;
-				z-index:2; color:#000; width:100%; margin-top:0.8em; margin-bottom:0.5em; line-height:1em; border-bottom:1px solid #000; margin-left:-1em; padding-bottom:0.2em;
-			img {vertical-align:bottom; height:1.5em; margin-right:0.3em;}
-		}
-		.videos {
-			a.video {display:inline-block; width:30%; vertical-align:middle; text-align:center;
-				img {display:block; height:18em}
-				strong {display:block; font-size:1.4em; margin-top:0.4em}
-				&.wide { margin-top:2em;
-					img {height:15em}
-				}
-			}
-		}
-		.fondos {
-			.half { width:45%; display:inline-block;
-				.demo {height:30em; border:1px solid #ccc; margin-right:1em; margin-bottom:1em; vertical-align:middle;}
-				.phone {height:30em; vertical-align:middle}
-				ul {padding-left:0;
-					li {display:inline-block;
-						a {display:inline-block; padding:0.5em; margin:0.6em; background:#eee; text-decoration:none;
-							&:hover {background:#ccc; text-decoration:underline;}
-							strong {font-size:1.4em}
-						}
-					}
-				}
-			}
-		}
-		.coverPhotos {
-			a.coverPhoto {display:inline-block; width:30%; vertical-align:middle; text-align:center;
-				img {width:100%; border:0.1em solid #ccc}
-			}
-		}
-		.imprimibles, .calcas, .playeras {
-			.thumbs {
-				a {text-decoration:none; display:inline-block; width:35%; text-align:center; vertical-align:middle;
-					img {width:70%; border:0.1em solid #ccc}
-				}
-			}
-		}
-		a img {@include transition(all 0.4s ease);}
-		a:hover img {@include transform(scale(1.2));}
-		
-		.calcas, .playeras {
-			.demo {height:30em}
-			.thumbs .three a {width:30%; margin:2em 0;
-				img {height:15em; width:auto}
-			}
-		}
-	}
+	iframe.docu {width:100%; height:90%; }
 }
-
