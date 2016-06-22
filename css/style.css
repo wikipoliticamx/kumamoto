@@ -1,2253 +1,566 @@
+@charset "UTF-8";
 body {
-  font-family: sans-serif;
   margin: 0;
   padding: 0;
-  font-size: 12px;
-  background: #fff; }
-
-#veda {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(216, 109, 117, 0.8);
-  color: white;
-  z-index: 100;
   text-align: center;
-  cursor: pointer; }
-  #veda div {
-    padding: 0.6em 1.5em;
-    padding-right: 0;
-    vertical-align: middle;
-    line-height: 1.2em;
-    font-size: 1.2em; }
-  #veda span.close {
-    font-size: 2em;
-    font-weight: bold;
-    padding-left: 0.5em;
-    padding-right: 1.5em;
-    float: right;
-    vertical-align: middle;
-    color: white; }
-  #veda:hover {
-    background-color: #d86d75; }
+  background: white;
+  font-family: sans-serif; }
 
-/************************** ;MENU **************************/
-#menu {
-  position: absolute;
-  bottom: 15%;
-  left: 0;
-  z-index: 2;
-  font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-  font-weight: 200;
-  font-size: 2em;
-  counter-reset: item -1;
-  line-height: 1em; }
-  #menu a {
-    color: #fff;
-    display: block;
-    margin: 0;
-    height: 2em; }
-    #menu a strong {
-      display: inline-block; }
-    #menu a::before {
-      background: #67B2A4;
-      width: 2em;
-      height: 1.6em;
-      padding: 0.5em 0;
-      text-align: center;
-      display: inline-block;
-      content: counter(item);
-      /*box-shadow:2px 2px 5px #555;*/
-      counter-increment: item;
-      border-right: 1px solid #777; }
-    #menu a:first-of-type::before {
-      border-top: 1px solid #777; }
-    #menu a:last-of-type::before {
-      border-bottom: 1px solid #777;
-      padding-bottom: 0; }
-    #menu a strong {
-      display: none;
-      background: #aaa;
-      padding: 0.5em 1em;
-      text-transform: uppercase; }
-      #menu a strong span {
-        font-weight: 200; }
-    #menu a:nth-child(odd)::before {
-      background-color: #8FC8BD; }
-    #menu a.uva.pausa::before {
-      background: #EACCCC;
-      color: #555; }
-    #menu a.uva::before {
-      background: #F7E4E4;
-      color: #555; }
-    #menu a.esmeralda.pausa::before {
-      background: #BBDAD3;
-      color: #555; }
-    #menu a.esmeralda::before {
-      background: #ECFCF8;
-      color: #555; }
-    #menu a:nth-of-type(1)::before {
-      content: '\2191';
-      background: #eee;
-      color: #333;
-      /*content:'';*/
-      /*background:url(/img/logos/kumalogo-sin-texto.png) no-repeat 0 0;*/
-      /*background-size:100%;*/
-      /*background-color:black;*/
-      /*[>box-shadow:none;<]*/ }
-    #menu a:nth-of-type(1).active {
-      visibility: hidden; }
-    #menu a.active::before {
-      content: '\2192';
-      background-color: #4E7B74 !important;
-      color: #fff !important; }
-    #menu a:hover::before {
-      background: #CD5560 !important;
-      content: counter(item);
-      color: #fff !important; }
-    #menu a:hover strong {
-      display: inline-block;
-      vertical-align: top;
-      background: #4E7B74; }
-    #menu a.inteligencia-colectiva::before {
-      background: #B7D8D4; }
-    #menu a.participacion-ciudadana::before {
-      background: #C2DBE4; }
-    #menu a.apertura:before {
-      background: #B4B4BB; }
-    #menu a.innovacion::before {
-      background: #EDAC9C; }
-    #menu a.transparencia::before {
-      background: #E8A3A7; }
-    #menu a.derechos-humanos::before {
-      background: #EDC2D4; }
-    #menu a.perspectiva-de-genero::before {
-      background: #DBCCE0; }
+a {
+  color: white;
+  text-decoration: none; }
 
-.ps-scrollbar-y-rail {
-  z-index: 2; }
+a:hover {
+  text-decoration: underline; }
 
-/* INDEX */
-/* SCREEN */
-.screen {
-  background: #f6f1e9 url(/img/ui/kumatile.jpg);
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  visibility: hidden;
-  /* COVER */
-  /* VIDEO */
-  /* NOSOTROS */
-  /* ;NOS ASESORAN */
-  /* ;MEDIOS */
-  /* ACERCA DE */
-  /* MAPA */ }
-  .screen.cover img.kumafoto {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    -webkit-filter: blur(1em); }
-  .screen.cover .copy {
-    padding: 2.5em 0 0 2.5em;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; }
-    .screen.cover .copy .kumalogo {
-      float: left;
-      margin-right: 0;
-      height: 23em;
-      margin-top: -0.6em;
-      opacity: 0;
-      position: relative;
-      z-index: 2; }
-    .screen.cover .copy h1 {
-      padding-top: 0;
-      margin-top: 0;
-      font-size: 10em;
-      line-height: 1em;
-      font-family: "Lemon/Milk", Helvetica, Arial;
-      margin-bottom: 0;
-      position: relative;
-      color: transparent; }
-      .screen.cover .copy h1 img {
-        height: 0.8em;
-        vertical-align: middle; }
-      .screen.cover .copy h1.pedro {
-        right: 0;
-        top: -3.33em; }
-      .screen.cover .copy h1.kumamoto {
-        right: 0;
-        opacity: 0; }
-    .screen.cover .copy h3 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-size: 2.8em;
-      margin: 0;
-      opacity: 0;
-      font-weight: 200;
-      position: absolute;
-      top: 8.9em;
-      left: 0.8em; }
-      .screen.cover .copy h3 strong, .screen.cover .copy h3 bold {
-        font-weight: 700;
-        font-size: inherit; }
-    .screen.cover .copy h2 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 5em;
-      margin: 0.3em 0 0 0;
-      position: absolute;
-      left: -16.9em;
-      top: 6em;
-      text-transform: uppercase;
-      line-height: 1.1em; }
-    .screen.cover .copy h4 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-size: 3.5em;
-      color: #fff;
-      font-weight: 200;
-      padding: 0;
-      position: absolute;
-      bottom: 2.5em;
-      left: 0.6em;
-      text-shadow: 0.05em 0.05em 0.12em #555; }
-      .screen.cover .copy h4 strong {
-        font-weight: 700;
-        color: #379088;
-        text-transform: uppercase; }
-  .screen.cover .redes {
-    position: absolute;
-    top: 2.5em;
-    right: 2.5em;
-    width: 9.2em;
-    line-height: 2.5em;
-    z-index: 2; }
-    .screen.cover .redes img {
-      width: 2.5em;
-      opacity: 0;
-      -webkit-filter: grayscale(100%);
-      filter: grayscale(100%); }
-    .screen.cover .redes a.fb img {
-      width: 5em;
-      float: left;
-      margin-right: 0.8em; }
-    .screen.cover .redes a:hover img {
-      -webkit-filter: grayscale(0);
-      filter: grayscale(0); }
-  .screen.cover .kitkumamoto {
-    position: absolute;
-    bottom: 4.5em;
-    right: -40em;
-    text-align: center;
-    padding: 0;
-    width: 33.3em;
-    background-size: 33.3em auto;
-    text-decoration: none;
-    color: black;
-    z-index: 3; }
-    .screen.cover .kitkumamoto img {
-      width: 33em; }
-  .screen.cover.portrait .copy {
-    padding-top: 1.5em; }
-    .screen.cover.portrait .copy h1.pedro {
-      font-size: 18em;
-      margin-bottom: 0; }
-    .screen.cover.portrait .copy h1.kumamoto {
-      display: inline-block;
-      font-size: 14em; }
-    .screen.cover.portrait .copy h3 {
-      top: 8.7em;
-      left: 0.7em;
-      font-size: 3.8em; }
-      .screen.cover.portrait .copy h3 span {
-        display: none; }
-    .screen.cover.portrait .copy .kumalogo {
-      height: 40em;
-      position: absolute;
-      top: 40em;
-      display: block; }
-    .screen.cover.portrait .copy h2 {
-      font-size: 8em;
-      right: 17.85em;
-      left: auto;
-      top: auto;
-      bottom: 3.5em;
-      width: 14em;
-      color: #fff; }
-    .screen.cover.portrait .copy h4 {
-      top: auto;
-      left: auto;
-      bottom: 4em;
-      right: 4em; }
-      .screen.cover.portrait .copy h4 strong {
-        color: #66CAC1; }
-  .screen.cover.portrait .goodbye {
-    font-size: 1.3em; }
-  .screen.video {
-    background-color: #ADDFD7;
-    color: black;
-    text-align: center;
+.header {
+  position: relative; }
+  .header .top {
     position: relative;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 100%; }
-    .screen.video .theater {
-      /*overflow:hidden;*/
-      background: #000;
-      width: 100%;
+    height: 600px;
+    overflow: hidden; }
+    .header .top img.bkg {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	-webkit-transition: all 2s ease;
+	-moz-transition: all 2s ease;
+	transition: all 2s ease;
+	visibility: visible;
+}
+    .header .top:hover img.bkg {
+      width: 120%;
+      top: -10%;
+      left: -10%; }
+    .header .top div.logo-y-ocupemos {
+      text-align: left;
       position: absolute;
-      top: 0; }
-      .screen.video .theater .fb {
-        position: absolute;
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-        z-index: 5; }
-        .screen.video .theater .fb img {
-          height: 5em; }
-        .screen.video .theater .fb:hover {
-          -webkit-filter: grayscale(0);
-          filter: grayscale(0); }
-      .screen.video .theater .date {
-        font-size: 1.1em;
-        padding-top: 2em;
-        text-align: right; }
-        .screen.video .theater .date a {
-          color: #555;
-          text-decoration: none; }
-          .screen.video .theater .date a:hover {
-            color: white;
-            text-decoration: underline; }
-      .screen.video .theater #ytplayer, .screen.video .theater #veil {
-        width: 100%;
-        margin: 0 auto;
-        display: inline-block;
-        position: absolute;
-        top: 5em;
-        z-index: 1;
-        margin-left: -2em; }
-      .screen.video .theater #veil {
-        z-index: 2;
-        display: none; }
-      .screen.video .theater .sidebar {
-        position: absolute;
-        width: 16.6em;
-        right: 0;
-        top: 0;
-        height: 100%;
-        overflow: auto;
-        text-align: center; }
-        .screen.video .theater .sidebar .soundToggle, .screen.video .theater .sidebar .replay {
-          height: 6.6em;
-          width: 6.6em;
-          margin-top: 5em;
-          margin-bottom: 2.5em;
-          position: relative;
-          display: inline-block;
-          overflow: hidden;
-          -webkit-transition: all 0.2s ease;
-          -moz-transition: all 0.2s ease;
-          transition: all 0.2s ease;
-          cursor: pointer; }
-          .screen.video .theater .sidebar .soundToggle img, .screen.video .theater .sidebar .replay img {
-            height: 6.6em; }
-          .screen.video .theater .sidebar .soundToggle.muted img, .screen.video .theater .sidebar .replay.muted img {
-            position: absolute;
-            top: 0;
-            left: 0; }
-          .screen.video .theater .sidebar .soundToggle.unMuted img, .screen.video .theater .sidebar .replay.unMuted img {
-            position: absolute;
-            top: 0;
-            left: -6.6em; }
-          .screen.video .theater .sidebar .soundToggle:hover, .screen.video .theater .sidebar .replay:hover {
-            -webkit-transform: scale(1.3);
-            -moz-transform: scale(1.3);
-            -ms-transform: scale(1.3);
-            -o-transform: scale(1.3);
-            transform: scale(1.3); }
-        .screen.video .theater .sidebar .replay {
-          margin-left: 2em; }
-        .screen.video .theater .sidebar .thumbs {
-          position: relative;
-          max-height: 43.64em; }
-          .screen.video .theater .sidebar .thumbs img {
-            width: 16.666em;
-            height: 9.25em;
-            display: inline-block;
-            margin: 0.83em 0.41em;
-            -webkit-filter: grayscale(100%);
-            filter: grayscale(100%);
-            cursor: pointer;
-            border: 1px solid transparent; }
-            .screen.video .theater .sidebar .thumbs img:hover, .screen.video .theater .sidebar .thumbs img.active {
-              -webkit-filter: grayscale(0);
-              filter: grayscale(0);
-              opacity: 1;
-              border: 1px solid white; }
-    .screen.video .copy {
-      position: absolute;
-      bottom: 3.5em;
-      width: 100%; }
-      .screen.video .copy h1 {
-        font-size: 5.6em;
-        line-height: 1.11em;
-        margin: 0;
-        margin-right: 0.8em;
-        margin-top: 2.5;
+      top: 30px;
+      left: 30px;
+      z-index: 2;
+      color: white; }
+      .header .top div.logo-y-ocupemos div.logo {
+        height: 8em;
         position: relative;
-        top: 0.2em;
-        display: inline-block;
-        text-transform: uppercase;
-        font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-        font-weight: 200;
-        text-align: left; }
-        .screen.video .copy h1 span {
-          opacity: 0;
-          position: relative;
-          display: inline-block;
-          -webkit-transition: all 8s ease;
-          -moz-transition: all 8s ease;
-          transition: all 8s ease; }
-          .screen.video .copy h1 span.muros {
-            font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-            font-weight: 500; }
-          .screen.video .copy h1 span.si {
-            font-size: 150%;
-            top: 0.2em;
-            color: #985f60;
-            font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-            font-weight: bold; }
-        .screen.video .copy h1 div {
-          margin-left: 3em; }
-      .screen.video .copy p {
-        font-family: "L Futura W01", Helvetica;
-        width: 30em;
-        color: #000;
-        display: inline-block;
-        margin: 0 auto;
-        vertical-align: top;
+        height: 8em; }
+@-webkit-keyframes fadeIn {
+  from {
+    -webkit-transform: scale(0); }
+  to {
+    -webkit-transform: scale(1); } }
+@-moz-keyframes fadeIn {
+  from {
+    -moz-transform: scale(0); }
+  to {
+    -moz-transform: scale(1); } }
+@keyframes fadeIn {
+  from {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0); }
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
+        .header .top div.logo-y-ocupemos div.logo img {
+          height: 8em;
+          position: absolute;
+          top: 0;
+          left: 0; }
+          .header .top div.logo-y-ocupemos div.logo img.white {
+            z-index: 1; }
+          .header .top div.logo-y-ocupemos div.logo img.color {
+            z-index: 2;
+            opacity: 0;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            transition: all 1s ease; }
+        .header .top div.logo-y-ocupemos div.logo:hover img.color {
+          opacity: 1; }
+      .header .top div.logo-y-ocupemos div.ocupemos-el-congreso {
+        margin-top: 5em;
+        margin-left: 6em;
         text-align: left;
-        font-size: 1.4em;
-        opacity: 0; }
-        .screen.video .copy p span {
-          display: block;
-          margin: 0.5em 0; }
-        .screen.video .copy p strong {
-          -webkit-transition: all 4s ease;
-          -moz-transition: all 4s ease;
-          transition: all 4s ease; }
-        .screen.video .copy p b {
-          color: #379088; }
-        .screen.video .copy p a {
-          color: black;
-          text-decoration: none;
-          font-style: italic; }
-          .screen.video .copy p a:hover {
-            text-decoration: underline; }
-  .screen.nosotros {
-    color: white;
-    text-align: center; }
-    .screen.nosotros h1 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      color: #000;
-      text-align: center;
-      margin: 0;
-      font-size: 7em;
-      display: inline-block;
-      line-height: 1em;
-      vertical-align: middle;
-      width: 10.3em;
-      text-transform: uppercase;
-      position: relative;
-      letter-spacing: 0.2em;
-      margin-top: -0.2em; }
-      .screen.nosotros h1 img {
-        height: 1.2em;
-        vertical-align: middle; }
-      .screen.nosotros h1 a {
-        position: absolute;
-        bottom: -0.4em;
-        font-size: 0.37em;
-        line-height: 1em;
-        letter-spacing: 0;
-        right: 8.2em;
-        font-weight: 200;
-        color: #999;
-        text-decoration: none; }
-        .screen.nosotros h1 a:hover {
-          color: #985f60; }
-    .screen.nosotros .galaxia {
-      text-align: center;
-      display: inline-block;
-      vertical-align: middle;
-      line-height: normal;
-      margin-top: 2em; }
-      .screen.nosotros .galaxia .azulejo-top, .screen.nosotros .galaxia .azulejo-bottom {
-        position: absolute;
-        z-index: 1;
-        width: 110%;
-        left: -2%; }
-      .screen.nosotros .galaxia .azulejo-bottom {
-        bottom: -6%; }
-      .screen.nosotros .galaxia .azulejo-top {
-        top: -6%; }
-      .screen.nosotros .galaxia div.wiki {
+        font-weight: bold;
+        font-size: 1.3em; }
+        .header .top div.logo-y-ocupemos div.ocupemos-el-congreso img {
+          margin-bottom: 0.7em; }
+        .header .top div.logo-y-ocupemos div.ocupemos-el-congreso span {
+          margin-left: 2em; }
+    .header .top div.topbar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	text-align: right;
+	width: 132px;
+}
+      .header .top div.topbar a {
         display: inline-block;
-        width: 10.5em;
-        height: 10.5em;
-        margin: 0.7em 2em;
-        text-align: center;
-        position: relative;
-        text-decoration: none;
-        z-index: 2;
-        font-size: 1em;
-        vertical-align: middle;
-        cursor: pointer;
-        opacity: 0; }
-        .screen.nosotros .galaxia div.wiki span {
-          color: white;
-          font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-          font-weight: 700;
-          text-transform: uppercase;
-          font-size: 2em;
-          position: absolute;
-          bottom: 0.2em;
-          line-height: 1em;
-          visibility: hidden;
-          display: inline-block;
-          width: 5em;
-          text-align: center;
-          /*-webkit-text-stroke-width:2px; -webkit-text-stroke-color:#000;*/
-          z-index: 2; }
-        .screen.nosotros .galaxia div.wiki img {
-          width: 10.5em;
-          height: 10.5em;
-          position: relative;
-          z-index: 1;
-          border: 1px solid #aaa;
-          border-radius: 1.6em;
-          box-shadow: 0.15em 0.15em 0.2em #999; }
-        .screen.nosotros .galaxia div.wiki:hover {
-          -webkit-transform: scale(1.3);
-          -moz-transform: scale(1.3);
-          -ms-transform: scale(1.3);
-          -o-transform: scale(1.3);
-          transform: scale(1.3);
-          z-index: 3;
-          transition: all 0.2s ease !important;
-          -moz-transition: all 0.2s ease !important;
-          -webkit-transition: all 0.2s ease !important; }
-          .screen.nosotros .galaxia div.wiki:hover img {
-            box-shadow: 0.15em 0.15em 0.2em #555;
-            vertical-align: middle;
-            border-color: white; }
-          .screen.nosotros .galaxia div.wiki:hover span {
-            visibility: visible; }
-  .screen.asesores {
-    text-align: center;
-    z-index: 1;
-    position: relative; }
-    .screen.asesores .asesores-bkg {
-      position: absolute;
-      top: 0;
-      height: 100%;
-      right: -0.5%; }
-    .screen.asesores h1 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 7em;
-      text-align: center;
-      margin: 0;
-      text-transform: uppercase;
-      left: 0;
-      z-index: 2;
-      color: #000;
-      text-align: center;
-      width: 100%; }
-      .screen.asesores h1 strong {
-        font-family: "FF Meta W01", Helvetica, Arial, sans-serif; }
-    .screen.asesores div.asesores {
-      margin: 0 auto; }
-      .screen.asesores div.asesores .asesor {
-        margin-bottom: 0.5em;
+        margin: 10px 10px 0 0;
+        width: 75px;
+        height: 75px;
         position: relative; }
-        .screen.asesores div.asesores .asesor .portrait {
-          display: inline-block;
-          text-align: right;
-          width: 10em;
-          position: relative; }
-          .screen.asesores div.asesores .asesor .portrait img {
-            height: 8em;
-            margin-right: 2em;
-            border: 1px solid #999; }
-        .screen.asesores div.asesores .asesor .bio {
-          display: inline-block;
-          max-width: 14em;
-          vertical-align: top;
-          text-align: center; }
-          .screen.asesores div.asesores .asesor .bio span.name {
-            display: block;
-            font-size: 1.2em;
-            color: #c87072;
-            text-transform: uppercase;
-            font-weight: 200; }
-          .screen.asesores div.asesores .asesor .bio em {
-            display: block;
-            margin: 0.6em 0.6em 0 0.6em;
-            color: #777; }
-            .screen.asesores div.asesores .asesor .bio em a {
-              color: #777; }
-              .screen.asesores div.asesores .asesor .bio em a:hover {
-                text-decoration: underline; }
-        .screen.asesores div.asesores .asesor p {
-          display: inline-block;
-          text-align: right;
-          width: 22em;
-          vertical-align: middle;
-          margin-top: 0;
-          text-align: left;
-          font-size: 130%; }
-        .screen.asesores div.asesores .asesor .card {
-          background: white;
-          display: inline-block;
-          padding-top: 0.6em;
-          margin-bottom: 0.5em;
-          vertical-align: middle;
-          position: relative;
-          box-shadow: 0.2em 0.2em 0.4em #ccc; }
-      .screen.asesores div.asesores .center {
-        display: block;
-        text-align: center;
-        margin-bottom: 1em; }
-        .screen.asesores div.asesores .center .top, .screen.asesores div.asesores .center .bottom {
-          display: inline-block; }
-        .screen.asesores div.asesores .center .asesor {
-          display: inline-block;
-          max-width: 15em;
-          text-align: center;
-          margin-bottom: 1em;
-          vertical-align: top;
-          background: white;
-          padding: 1.5em 1em;
-          margin-right: 1.5em;
-          box-shadow: 0.2em 0.2em 0.4em #ccc; }
-          .screen.asesores div.asesores .center .asesor img {
-            margin-right: 0;
-            height: 10em; }
-          .screen.asesores div.asesores .center .asesor .bio {
-            display: block;
-            width: 100%;
-            margin-top: 0.5em;
-            text-align: center; }
-          .screen.asesores div.asesores .center .asesor p {
-            display: none; }
-      .screen.asesores div.asesores .left, .screen.asesores div.asesores .right {
-        width: 49.5%;
-        display: inline-block;
-        vertical-align: top; }
-        .screen.asesores div.asesores .left em, .screen.asesores div.asesores .right em {
-          margin-top: 1em; }
-        .screen.asesores div.asesores .left span.name, .screen.asesores div.asesores .right span.name {
-          margin-top: 0.5em; }
-        .screen.asesores div.asesores .left p, .screen.asesores div.asesores .right p {
-          font-size: 1.2em;
-          position: relative; }
-      .screen.asesores div.asesores .center .asesor, .screen.asesores div.asesores .left .card, .screen.asesores div.asesores .right .card {
-        border: 1px solid transparent; }
-        .screen.asesores div.asesores .center .asesor a.twitter, .screen.asesores div.asesores .left .card a.twitter, .screen.asesores div.asesores .right .card a.twitter {
+        .header .top div.topbar a img {
+          width: 75px;
           position: absolute;
-          bottom: -1em;
-          left: 50%;
-          margin-left: -1em;
-          z-index: 2; }
-          .screen.asesores div.asesores .center .asesor a.twitter img, .screen.asesores div.asesores .left .card a.twitter img, .screen.asesores div.asesores .right .card a.twitter img {
-            width: 2em;
-            height: auto;
-            border: none;
-            margin-right: 0; }
-        .screen.asesores div.asesores .center .asesor:hover, .screen.asesores div.asesores .left .card:hover, .screen.asesores div.asesores .right .card:hover {
-          border: 1px solid #ccc;
-          -webkit-transform: scale(1.3);
-          -moz-transform: scale(1.3);
-          -ms-transform: scale(1.3);
-          -o-transform: scale(1.3);
-          transform: scale(1.3);
-          z-index: 5; }
-      .screen.asesores div.asesores .left .card a.twitter {
-        right: 14%;
-        bottom: -2em;
-        margin-left: 1em; }
-      .screen.asesores div.asesores .right .card a.twitter {
-        left: auto;
-        left: 10%;
-        bottom: -2em;
-        margin-left: 1em; }
-      .screen.asesores div.asesores .left {
-        text-align: right;
-        width: 47.5%;
-        padding-right: 1%;
-        border-right: 1px solid #999;
-        margin-right: 1%; }
-        .screen.asesores div.asesores .left .asesor .portrait {
-          margin-left: 0.5em; }
-        .screen.asesores div.asesores .left .asesor p {
-          text-align: right;
-          background-color: #f0ecdc;
-          background-image: -webkit-linear-gradient(left, #f0ecdc, #CBBFAE);
-          background-image: linear-gradient(to right,#f0ecdc, #CBBFAE);
-          padding: 0.8em;
-          padding-left: 0;
-          /*left:-60em;*/ }
-        .screen.asesores div.asesores .left .card {
-          margin-left: 1em; }
-          .screen.asesores div.asesores .left .card img {
-            margin-bottom: 0.4em;
-            margin-right: 0.8em; }
-      .screen.asesores div.asesores .right {
-        text-align: left; }
-        .screen.asesores div.asesores .right .card {
-          margin-right: 1em; }
-          .screen.asesores div.asesores .right .card img {
-            margin-bottom: 0.4em;
-            margin-left: 0.8em; }
-        .screen.asesores div.asesores .right .asesor {
-          text-align: left; }
-          .screen.asesores div.asesores .right .asesor .portrait {
-            text-align: left; }
-            .screen.asesores div.asesores .right .asesor .portrait img {
-              margin-right: 0; }
-          .screen.asesores div.asesores .right .asesor p {
-            /*left:60em;*/
-            background-color: #f0ecdc;
-            background-image: -webkit-linear-gradient(right, #f0ecdc, #CBBFAE);
-            background-image: linear-gradient(to left,#f0ecdc, #CBBFAE);
-            padding: 0.8em;
-            padding-right: 0; }
-  .screen.medios {
-    background: #fff;
-    z-index: 2; }
-    .screen.medios h1 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 7em;
-      text-align: center;
-      margin-top: 0.2em;
-      margin-bottom: 0.35em;
-      text-transform: uppercase;
-      letter-spacing: 0; }
-      .screen.medios h1 strong {
-        font-family: "FF Meta W01", Helvetica, Arial, sans-serif; }
-    .screen.medios .carton {
-      position: absolute;
-      right: -27em;
-      top: 44em;
-      z-index: 5; }
-      .screen.medios .carton img {
-        width: 25em;
-        box-shadow: 0.2em 0.2em 0.2em #aaa;
-        -webkit-transition: all 1s ease;
-        -moz-transition: all 1s ease;
-        transition: all 1s ease;
-        position: relative;
-        -webkit-transform: rotate(-10deg);
-        -moz-transform: rotate(-10deg);
-        -ms-transform: rotate(-10deg);
-        -o-transform: rotate(-10deg);
-        transform: rotate(-10deg); }
-      .screen.medios .carton.carton9abr {
-        top: 24em; }
-        .screen.medios .carton.carton9abr img {
-          -webkit-transform: rotate(10deg);
-          -moz-transform: rotate(10deg);
-          -ms-transform: rotate(10deg);
-          -o-transform: rotate(10deg);
-          transform: rotate(10deg); }
-      .screen.medios .carton:hover img, .screen.medios .carton.carton9abr:hover img {
-        -webkit-transform: scale(1.3) rotate(0);
-        -moz-transform: scale(1.3) rotate(0);
-        -ms-transform: scale(1.3) rotate(0);
-        -o-transform: scale(1.3) rotate(0);
-        transform: scale(1.3) rotate(0); }
-      .screen.medios .carton:hover {
-        z-index: 10; }
-    .screen.medios .ferrizStill {
-      position: absolute;
-      right: -27em;
-      top: 9em;
-      z-index: 5; }
-      .screen.medios .ferrizStill img {
-        width: 25em;
-        box-shadow: 0.2em 0.2em 0.2em #aaa;
-        -webkit-transition: all 1s ease;
-        -moz-transition: all 1s ease;
-        transition: all 1s ease;
-        position: relative;
-        -webkit-transform: rotate(-10deg);
-        -moz-transform: rotate(-10deg);
-        -ms-transform: rotate(-10deg);
-        -o-transform: rotate(-10deg);
-        transform: rotate(-10deg); }
-      .screen.medios .ferrizStill:hover img {
-        -webkit-transform: scale(1.3) rotate(0);
-        -moz-transform: scale(1.3) rotate(0);
-        -ms-transform: scale(1.3) rotate(0);
-        -o-transform: scale(1.3) rotate(0);
-        transform: scale(1.3) rotate(0); }
-    .screen.medios .logos {
-      text-align: center;
-      margin: 0 auto;
-      margin-top: 1em;
-      width: 90%;
-      overflow: scroll;
-      height: 7.5em; }
-      .screen.medios .logos a {
-        opacity: 0; }
-      .screen.medios .logos img {
-        height: 2.6em;
-        display: inline-block;
-        margin: 0.8em 1.66em;
-        vertical-align: middle;
-        -webkit-transition: all 0.2s ease;
-        -moz-transition: all 0.2s ease;
-        transition: all 0.2s ease; }
-      .screen.medios .logos a:hover img {
-        -webkit-transform: scale(1.3);
-        -moz-transform: scale(1.3);
-        -ms-transform: scale(1.3);
-        -o-transform: scale(1.3);
-        transform: scale(1.3); }
-      .screen.medios .logos a.void {
-        cursor: default; }
-    .screen.medios .citas {
-      display: block;
-      width: 100%;
-      font-size: 1.3em;
-      margin: 0 auto;
-      padding: 0.64em 0;
-      position: relative;
-      background: #f6f1e9 url(/img/ui/kumatile.jpg); }
-      .screen.medios .citas .medio {
-        text-decoration: none;
-        color: black;
-        overflow: hidden;
-        text-align: center;
-        font-family: "L Futura W01", Helvetica;
-        display: block;
-        margin: 0;
-        margin-right: 8em;
-        position: relative; }
-        .screen.medios .citas .medio a {
-          text-decoration: none;
-          color: #000; }
-        .screen.medios .citas .medio .copy {
-          display: inline-block;
-          width: 40em;
-          vertical-align: top; }
-          .screen.medios .citas .medio .copy a {
-            padding: 0.8em;
-            display: inline-block;
-            text-align: left;
-            width: 40em;
-            vertical-align: top; }
-            .screen.medios .citas .medio .copy a .source {
-              text-align: right;
-              color: #999;
-              margin-top: 0.64em; }
-              .screen.medios .citas .medio .copy a .source em {
-                color: #379088; }
-            .screen.medios .citas .medio .copy a:hover {
-              background: #fff; }
-            .screen.medios .citas .medio .copy a strong {
-              -webkit-transition: all 2s ease;
-              -moz-transition: all 2s ease;
-              transition: all 2s ease; }
-        .screen.medios .citas .medio .asesor {
-          display: none; }
-        .screen.medios .citas .medio div.logo {
-          display: inline-block;
-          width: 25%;
-          text-align: right;
-          height: 3.2em; }
-          .screen.medios .citas .medio div.logo img {
-            width: 25em;
-            margin-top: 1em;
-            margin-right: 2em;
-            -webkit-transition: all 0.2s ease;
-            -moz-transition: all 0.2s ease;
-            transition: all 0.2s ease; }
-        .screen.medios .citas .medio.maspormas {
-          left: -96em; }
-          .screen.medios .citas .medio.maspormas div.logo img {
-            width: 20em;
-            margin-right: 4em; }
-        .screen.medios .citas .medio.milenio {
-          left: 96em; }
-        .screen.medios .citas .medio.informador {
-          left: -96em; }
-        .screen.medios .citas .medio:hover div.logo img {
-          -webkit-transform: scale(1.1) rotate(0);
-          -moz-transform: scale(1.1) rotate(0);
-          -ms-transform: scale(1.1) rotate(0);
-          -o-transform: scale(1.1) rotate(0);
-          transform: scale(1.1) rotate(0); }
-        .screen.medios .citas .medio.yonofui {
-          left: -96em; }
-          .screen.medios .citas .medio.yonofui div.logo {
-            font-size: 1.2em;
-            overflow: visible;
-            height: 5em;
-            padding-top: 1em; }
-            .screen.medios .citas .medio.yonofui div.logo a {
-              margin-right: 2.5em; }
-              .screen.medios .citas .medio.yonofui div.logo a img {
-                width: 5em;
-                height: 5em;
-                vertical-align: Middle;
-                margin-right: 0;
-                margin-left: 1em;
-                margin-top: 0;
-                border: 1px solid #999;
-                z-index: 3; }
-          .screen.medios .citas .medio.yonofui:hover div.logo img {
-            -webkit-transform: scale(1.3) rotate(0);
-            -moz-transform: scale(1.3) rotate(0);
-            -ms-transform: scale(1.3) rotate(0);
-            -o-transform: scale(1.3) rotate(0);
-            transform: scale(1.3) rotate(0); }
-          .screen.medios .citas .medio.yonofui img.twitter {
-            height: 1em;
-            float: left;
-            margin-left: -1.9em;
-            margin-top: 1em; }
-  .screen.acercade {
-    text-align: center;
-    z-index: 1;
-    position: relative; }
-    .screen.acercade h1 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 7em;
-      text-align: center;
-      margin: 0;
-      text-transform: uppercase;
-      opacity: 0;
-      position: absolute;
-      top: 0.2em;
-      left: 0;
-      z-index: 2;
-      color: #fff;
-      width: 50%;
-      text-align: center; }
-      .screen.acercade h1 strong {
-        font-family: "FF Meta W01", Helvetica, Arial, sans-serif; }
-    .screen.acercade .yo-kuma {
-      overflow: hidden; }
-      .screen.acercade .yo-kuma .foto {
-        width: 50%;
-        overflow: hidden;
-        float: left;
-        text-align: right; }
-        .screen.acercade .yo-kuma .foto img {
-          height: 100%;
-          position: relative;
           top: 0;
           left: 0;
-          margin-top: 6em;
-          /*-webkit-filter:grayscale(1); transition: all 2s ease;*/ }
-      .screen.acercade .yo-kuma .copy {
-        width: 50%;
-        float: left;
-        text-align: left;
-        position: relative;
-        font-family: "L Futura W01", Helvetica;
-        overflow: hidden;
-        /*p:nth-of-type(2) { margin-top:60px; }*/ }
-        .screen.acercade .yo-kuma .copy strong, .screen.acercade .yo-kuma .copy b {
-          -webkit-transition: all 2s ease;
-          -moz-transition: all 2s ease;
-          transition: all 2s ease; }
-        .screen.acercade .yo-kuma .copy p {
-          width: 70%;
-          text-align: left;
-          font-size: 1.5em;
-          margin-left: 7em; }
-        .screen.acercade .yo-kuma .copy p:nth-of-type(1) {
-          margin-top: 4.5em; }
-      .screen.acercade .yo-kuma .todos {
-        width: 50%;
+          vertical-align: middle; }
+          .header .top div.topbar a img.white {
+            z-index: 1; }
+          .header .top div.topbar a img.color {
+            z-index: 2;
+            opacity: 0;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            transition: all 1s ease; }
+        .header .top div.topbar a.twitter img {
+          top: 5px; }
+        .header .top div.topbar a:hover img.color {
+          opacity: 1; }
+  .header .bottom {
+	break: none;
+	color: white;
+	text-align: center;
+	background: #214e64 url(../img/bkg/that-kinda-blue.jpg);
+	height: 410px;
+	overflow: hidden;
+	position: relative;
+}
+    .header .bottom .left, .header .bottom .middle, .header .bottom .right {
+	display: inline-block;
+	width: 33%;
+	max-width: 500px;
+	height: 410px;
+	overflow: hidden;
+}
+    .header .bottom .front {
+      position: relative;
+      width: 100%;
+      height: 100%; }
+      .header .bottom .front h2 {
         position: absolute;
         bottom: 0;
-        left: 50%; }
-  .screen.mapa {
-    background: #555;
-    text-align: center;
-    position: relative; }
-    .screen.mapa h1 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-size: 4em;
-      text-align: center;
-      text-transform: uppercase;
-      margin: 0; }
-    .screen.mapa h2 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 1.7em;
-      text-align: center;
-      text-transform: uppercase;
-      margin: 0; }
-    .screen.mapa h3 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-size: 2em;
-      text-transform: uppercase;
-      margin-top: 0.5em;
-      margin-bottom: 0.83em; }
-    .screen.mapa a.mapa img {
-      width: 100%;
+        font-size: 2em; }
+    .header .bottom .left, .header .bottom .right {
+      opacity: 0.9;
+      position: relative; }
+      .header .bottom .left .hover, .header .bottom .right .hover {
+	position: absolute;
+	top: 420px;
+	height: 250px;
+	width: 100%;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	transition: all 1s ease;
+}
+      .header .bottom .left:hover, .header .bottom .right:hover {
+        opacity: 1; }
+        .header .bottom .left:hover .hover, .header .bottom .right:hover .hover {
+	top: 180px;
+}
+    .header .bottom .left {
+      background: #393440 url(../img/bkg/kuma-degradado-rojo.jpg) no-repeat;
+      background-size: auto 100%;
+      background-position: left top;
       position: absolute;
-      top: -5em;
+      top: 0;
       left: 0; }
-    .screen.mapa .copy {
+      .header .bottom .left .front h2 {
+        left: 10%;
+        text-align: left;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        transition: all 1s ease; }
+      .header .bottom .left .hover {
+        background: #C94A50; }
+        .header .bottom .left .hover .porque {
+          margin: 2em;
+          text-align: left; }
+          .header .bottom .left .hover .porque a {
+            text-decoration: underline; }
+          .header .bottom .left .hover .porque a:hover {
+            color: black; }
+      .header .bottom .left:hover .front h2 {
+	bottom: 294px;
+	left: 45%;
+}
+    .header .bottom .middle {
+      width: 36%;
+      text-align: center;
+      position: relative; }
+      .header .bottom .middle .front {
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        transition: all 1s ease;
+        z-index: 2;
+        /*background:#63CABB url(../img/bkg/newsletter.jpg) center bottom no-repeat; background-size:100%;*/
+		/*#204e63 #005063 */
+        background: #325266 url(../img/bkg/seisMeses-participacion.png) no-repeat;
+        background-size: auto auto;
+        background-position: center bottom; }
+        .header .bottom .middle .front .seisMeses {
+          background: #325266;
+          height: 180px;
+          width: 100%; }
+          .header .bottom .middle .front .seisMeses img {
+            margin-top: 15px;
+            opacity: 0.5;
+            width: 90%; }
+          .header .bottom .middle .front .seisMeses:hover img {
+            opacity: 1; }
+      .header .bottom .middle:hover .front {
+        opacity: 0; }
+      .header .bottom .middle .hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 420px;
+        z-index: 1; }
+        .header .bottom .middle .hover .giphy-embed {
+          width: 100%;
+          height: 100%; }
+    .header .bottom .right {
+      background: #393440 url(../img/bkg/wallace.jpg) no-repeat;
+      background-size: auto 100%;
+      background-position: right top;
       position: absolute;
-      top: 2.5em;
-      right: -32.5em;
-      background: #fff;
-      padding: 2.5em;
-      z-index: 3;
-      box-shadow: 0 0.25em 0.417em #999; }
-      .screen.mapa .copy .data-maps img {
-        -webkit-transition: all 0.2s ease;
-        -moz-transition: all 0.2s ease;
-        transition: all 0.2s ease;
-        height: 12.5em;
-        width: 8.17em;
-        margin: 0.83em;
-        background-repeat: no-repeat; }
-        .screen.mapa .copy .data-maps img:hover {
-          -webkit-transform: scale(1.2);
-          -moz-transform: scale(1.2);
-          -ms-transform: scale(1.2);
-          -o-transform: scale(1.2);
-          transform: scale(1.2); }
+      top: 0;
+      right: 0; }
+      .header .bottom .right .front h2 {
+        right: 10%;
+        text-align: right; }
+      .header .bottom .right .hover {
+        top: -168px; }
+        .header .bottom .right .hover .suscribete {
+          background: #62CABB;
+          width: 100%;
+          height: 168px; }
+          .header .bottom .right .hover .suscribete h2 {
+            margin: 0;
+            padding-top: 0.8em; }
+          .header .bottom .right .hover .suscribete input {
+            display: block;
+            width: 80%;
+            margin: 0.5em auto;
+            height: 1.5em;
+            line-height: 1.5em;
+            font-size: 1.5em;
+            color: #7A9B91;
+            text-align: center; }
+      .header .bottom .right:hover {
+        opacity: 1; }
+        .header .bottom .right:hover .hover {
+          top: 0; }
+  .header h1 {
+    color: white; }
 
-/************************** ;PROPUESTAS **************************/
-.propuestas .screen p strong {
-  color: #c87072; }
-.propuestas .screen ol {
-  margin-top: 0; }
-  .propuestas .screen ol strong {
-    color: #379088; }
-.propuestas .screen h1 {
-  font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-  font-weight: 200;
-  font-size: 7em;
+.cleanser {
+  background: #ccc;
   text-align: center;
-  margin: 0;
-  z-index: 2;
-  color: #000;
-  width: 100%;
-  text-align: center;
-  margin-top: 0;
-  line-height: 1em; }
-.propuestas .screen.toc {
-  position: relative; }
-  .propuestas .screen.toc .ciudad, .propuestas .screen.toc .gobierno {
-    width: 49.9%;
+  font-weight: bold;
+  text-align: center; }
+  .cleanser h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+    color: black;
+    padding: 1.5em 0; }
+  .cleanser a {
+    color: black;
+    text-decoration: underline; }
+  .cleanser a:hover {
+    color: #FA5651; }
+
+.novedades .novedad {
+  display: block;
+  height: 200px;
+  line-height: 200px;
+  text-align: left; }
+  .novedades .novedad .arrow {
     display: inline-block;
-    text-align: center;
-    vertical-align: top; }
-    .propuestas .screen.toc .ciudad h2, .propuestas .screen.toc .gobierno h2 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-size: 3.5em;
-      font-weight: 200;
-      text-transform: uppercase;
-      margin-bottom: 0.2em; }
-      .propuestas .screen.toc .ciudad h2 a, .propuestas .screen.toc .gobierno h2 a {
-        color: black;
-        display: block;
-        line-height: 2em;
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(left, #f0ecdc, #EACCCC);
-        background-image: linear-gradient(to right,#f0ecdc, #EACCCC); }
-        .propuestas .screen.toc .ciudad h2 a:hover img, .propuestas .screen.toc .gobierno h2 a:hover img {
-          -webkit-transform: scale(1.3);
-          -moz-transform: scale(1.3);
-          -ms-transform: scale(1.3);
-          -o-transform: scale(1.3);
-          transform: scale(1.3); }
-      .propuestas .screen.toc .ciudad h2 strong, .propuestas .screen.toc .gobierno h2 strong {
-        font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-        font-weight: bold; }
-      .propuestas .screen.toc .ciudad h2 span, .propuestas .screen.toc .gobierno h2 span {
-        width: 4.4em;
-        display: inline-block;
-        position: relative; }
-        .propuestas .screen.toc .ciudad h2 span img, .propuestas .screen.toc .gobierno h2 span img {
-          vertical-align: middle;
-          height: 3em;
-          margin: 0;
-          position: absolute;
-          top: -2.1em; }
-    .propuestas .screen.toc .ciudad h3, .propuestas .screen.toc .gobierno h3 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-size: 2.5em;
-      width: 100%;
-      text-align: left;
-      margin: 0;
-      font-weight: 200; }
-      .propuestas .screen.toc .ciudad h3 a, .propuestas .screen.toc .gobierno h3 a {
-        color: black;
-        height: 1.7em;
-        display: block;
-        margin: 1.9em 0;
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(left, #f0ecdc, #E2DACF);
-        background-image: linear-gradient(to right,#f0ecdc, #E2DACF); }
-        .propuestas .screen.toc .ciudad h3 a span, .propuestas .screen.toc .gobierno h3 a span {
-          display: inline-block;
-          width: 6em;
-          text-align: center;
-          position: relative; }
-          .propuestas .screen.toc .ciudad h3 a span img, .propuestas .screen.toc .gobierno h3 a span img {
-            position: absolute;
-            top: -2em;
-            left: 0.8em; }
-        .propuestas .screen.toc .ciudad h3 a:hover, .propuestas .screen.toc .gobierno h3 a:hover {
-          background-color: #f0ecdc;
-          background-image: -webkit-linear-gradient(left, #f0ecdc, #C5B39A);
-          background-image: linear-gradient(to right,#f0ecdc, #C5B39A); }
-          .propuestas .screen.toc .ciudad h3 a:hover img, .propuestas .screen.toc .gobierno h3 a:hover img {
-            -webkit-transform: scale(1.3);
-            -moz-transform: scale(1.3);
-            -ms-transform: scale(1.3);
-            -o-transform: scale(1.3);
-            transform: scale(1.3); }
-      .propuestas .screen.toc .ciudad h3 strong, .propuestas .screen.toc .gobierno h3 strong {
-        font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-        font-weight: bold; }
-    .propuestas .screen.toc .ciudad a, .propuestas .screen.toc .gobierno a {
-      text-decoration: none; }
-      .propuestas .screen.toc .ciudad a img, .propuestas .screen.toc .gobierno a img {
-        height: 3em;
-        vertical-align: middle; }
-  .propuestas .screen.toc .ciudad h2, .propuestas .screen.toc .ciudad h3 {
+    width: 45%;
+    text-align: right;
+    height: 200px;
+    line-height: 200px;
+    max-width: 650px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease; }
+    .novedades .novedad .arrow .chevron {
+      float: right;
+      margin-right: -100px;
+      margin-left: 0;
+      display: inline-block;
+      vertical-align: middle;
+      width: 0;
+      height: 0;
+      border-top: 100px solid transparent;
+      border-bottom: 100px solid transparent;
+      border-left: 100px solid transparent; }
+    .novedades .novedad .arrow .text {
+	display: inline-block;
+	font-size: 1.7em;
+	line-height: 1em;
+	vertical-align: middle;
+	color: white;
+}
+      .novedades .novedad .arrow .text h1 {
+        font-size: 1em;
+        margin: 0;
+        font-weight: normal; }
+      .novedades .novedad .arrow .text .links {
+        text-align: center;
+        font-size: 0.7em;
+        visibility: hidden;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        transition: all 1s ease;
+        margin-top: 1em; }
+        .novedades .novedad .arrow .text .links a {
+	text-decoration: underline;
+	color: black;
+	display: inline-block;
+	margin-right: 1em;
+	text-align: left;
+}
+  .novedades .novedad.reverse {
     text-align: right; }
-  .propuestas .screen.toc .ciudad h2 a img {
-    margin-left: 0.5em;
-    left: 0; }
-  .propuestas .screen.toc .ciudad h2 a:hover {
-    background-color: #f0ecdc;
-    background-image: -webkit-linear-gradient(left, #f0ecdc, #D86D74);
-    background-image: linear-gradient(to right,#f0ecdc, #D86D74); }
-  .propuestas .screen.toc .ciudad h3 a img {
-    margin-right: 1em; }
-  .propuestas .screen.toc .gobierno h2 {
-    text-align: left; }
-    .propuestas .screen.toc .gobierno h2 a {
-      background-color: #f0ecdc;
-      background-image: -webkit-linear-gradient(right, #f0ecdc, #DAECE8);
-      background-image: linear-gradient(to left,#f0ecdc, #DAECE8); }
-      .propuestas .screen.toc .gobierno h2 a img {
-        margin-left: 0.8em;
-        margin-right: 0.6em;
-        left: -0.2em; }
-      .propuestas .screen.toc .gobierno h2 a:hover {
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(right, #f0ecdc, #93D2C8);
-        background-image: linear-gradient(to left,#f0ecdc, #93D2C8); }
-  .propuestas .screen.toc .gobierno h3 a {
-    background-color: #f0ecdc;
-    background-image: -webkit-linear-gradient(right, #f0ecdc, #E2DACF);
-    background-image: linear-gradient(to left,#f0ecdc, #E2DACF); }
-    .propuestas .screen.toc .gobierno h3 a span img {
-      left: 1.8em; }
-    .propuestas .screen.toc .gobierno h3 a:hover {
-      background-color: #f0ecdc;
-      background-image: -webkit-linear-gradient(right, #f0ecdc, #C5B39A);
-      background-image: linear-gradient(to left,#f0ecdc, #C5B39A); }
-  .propuestas .screen.toc .gobierno h3.contrapeso a img {
-    height: 2.2em;
-    top: -1.5em; }
-.propuestas .screen.ciudad h1, .propuestas .screen.gobierno h1 {
-  position: absolute;
-  top: 1em;
-  left: 0;
-  font-size: 9em;
-  color: white;
-  /*text-shadow:0.03em 0.03em white;*/ }
-  .propuestas .screen.ciudad h1 img, .propuestas .screen.gobierno h1 img {
-    height: 2.5em;
-    vertical-align: middle; }
-.propuestas .screen.ciudad img.gobierno, .propuestas .screen.ciudad img.ciudad, .propuestas .screen.gobierno img.gobierno, .propuestas .screen.gobierno img.ciudad {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  height: 100%; }
-.propuestas .screen.ciudad div.copy, .propuestas .screen.gobierno div.copy {
-  position: absolute;
-  bottom: 3em;
-  right: 4em;
-  z-index: 2;
-  background-color: white;
-  padding: 1em 3em;
-  font-size: 1.4em;
-  font-family: "L Futura W01", Helvetica;
-  width: 30em; }
-  .propuestas .screen.ciudad div.copy strong, .propuestas .screen.gobierno div.copy strong {
-    font-size: 1em; }
-  .propuestas .screen.ciudad div.copy b, .propuestas .screen.gobierno div.copy b {
-    color: #379088; }
-.propuestas .screen.gobierno {
-  position: relative; }
-  .propuestas .screen.gobierno h1 {
-    position: absolute;
-    z-index: 2; }
-.propuestas .screen.democratica, .propuestas .screen.sostenible, .propuestas .screen.incluyente, .propuestas .screen.personas, .propuestas .screen.excelencia, .propuestas .screen.contrapeso {
-  background: #eee; }
-  .propuestas .screen.democratica .video, .propuestas .screen.democratica .fb, .propuestas .screen.democratica .text, .propuestas .screen.sostenible .video, .propuestas .screen.sostenible .fb, .propuestas .screen.sostenible .text, .propuestas .screen.incluyente .video, .propuestas .screen.incluyente .fb, .propuestas .screen.incluyente .text, .propuestas .screen.personas .video, .propuestas .screen.personas .fb, .propuestas .screen.personas .text, .propuestas .screen.excelencia .video, .propuestas .screen.excelencia .fb, .propuestas .screen.excelencia .text, .propuestas .screen.contrapeso .video, .propuestas .screen.contrapeso .fb, .propuestas .screen.contrapeso .text {
-    width: 33%;
-    display: inline-block;
-    vertical-align: top;
-    height: 100%;
-    overflow: hidden; }
-  .propuestas .screen.democratica .video, .propuestas .screen.sostenible .video, .propuestas .screen.incluyente .video, .propuestas .screen.personas .video, .propuestas .screen.excelencia .video, .propuestas .screen.contrapeso .video {
-    width: 28%; }
-  .propuestas .screen.democratica .text, .propuestas .screen.sostenible .text, .propuestas .screen.incluyente .text, .propuestas .screen.personas .text, .propuestas .screen.excelencia .text, .propuestas .screen.contrapeso .text {
-    width: 38%; }
-  .propuestas .screen.democratica .video, .propuestas .screen.sostenible .video, .propuestas .screen.incluyente .video, .propuestas .screen.personas .video, .propuestas .screen.excelencia .video, .propuestas .screen.contrapeso .video {
-    background: #ccc;
+    .novedades .novedad.reverse .arrow {
+      text-align: left; }
+      .novedades .novedad.reverse .arrow .chevron {
+        float: left;
+        margin-right: 0;
+        margin-left: -100px;
+        border-left-width: 0;
+        border-right: 100px solid transparent; }
+  .novedades .novedad:nth-child(1) {
+    background: #8C424C url(../img/bkg/70-renuncia.jpg) no-repeat;
+    background-size: auto auto;
+    background-position: right 0;
+    -webkit-transition: background-position-y 3s ease;
+    -moz-transition: background-position-y 3s ease;
+    transition: background-position-y 3s ease; }
+    .novedades .novedad:nth-child(1):hover {
+      background-position: right -400px; }
+      .novedades .novedad:nth-child(1):hover .arrow {
+        /*width: 40%; */ }
+    .novedades .novedad:nth-child(1) .arrow {
+      background: #FB524E; }
+      .novedades .novedad:nth-child(1) .arrow .chevron {
+        border-left-color: #FB524E; }
+  .novedades .novedad:nth-child(2) {
+    background: #3D797E url(../img/bkg/razonamiento.jpg) no-repeat;
+    background-size: auto auto;
+    background-position: 0 0;
+    -webkit-transition: all 1.5s ease;
+    -moz-transition: all 1.5s ease;
+    transition: all 1.5s ease; }
+    .novedades .novedad:nth-child(2):hover {
+      background-position: 0 -200px; }
+      .novedades .novedad:nth-child(2):hover .arrow {
+        /*width: 35%;*/ }
+    .novedades .novedad:nth-child(2) .arrow {
+      background: #5CCAC6; }
+      .novedades .novedad:nth-child(2) .arrow .chevron {
+        border-right-color: #5CC9C6; }
+  .novedades .novedad:nth-child(3) {
+    background: #AB7C22 url(../img/bkg/del-congreso-a-las-calles.jpg) no-repeat;
+    background-size: auto auto;
+    background-position: right 0;
+    -webkit-transition: background-position-y 1.5s ease;
+    -moz-transition: background-position-y 1.5s ease;
+    transition: background-position-y 1.5s ease; }
+    .novedades .novedad:nth-child(3):hover {
+      background-position: right -200px; }
+      .novedades .novedad:nth-child(3):hover .arrow {
+        /*width: 30%;*/ }
+    .novedades .novedad:nth-child(3) .arrow {
+      background: #E8A41D; }
+      .novedades .novedad:nth-child(3) .arrow .chevron {
+        border-left-color: #E8A41D; }
+  .novedades .novedad:nth-child(4) {
+    background: #2D614A url(../img/bkg/sin-voto-no-hay-dinero.jpg) no-repeat;
+    background-size: auto auto;
+    background-position: 0 0;
+    -webkit-transition: all 3s ease;
+    -moz-transition: all 3s ease;
+    transition: all 3s ease; }
+    .novedades .novedad:nth-child(4):hover {
+      background-position: 0 -600px; }
+      .novedades .novedad:nth-child(4):hover .arrow {
+        /*width: 35%;*/ }
+    .novedades .novedad:nth-child(4) .arrow {
+      background: #3BAD66; }
+      .novedades .novedad:nth-child(4) .arrow .chevron {
+        border-right-color: #3BAD66; }
+  .novedades .novedad:hover .text .links {
+    visibility: visible; }
+
+.equipo-kuma {
+	background: white;
+	height: 72em;
+	overflow: hidden;
+}
+  .equipo-kuma div.equipo-strip {
+    margin-bottom: 1em;
+    height: 6em;
     position: relative; }
-    .propuestas .screen.democratica .video img, .propuestas .screen.sostenible .video img, .propuestas .screen.incluyente .video img, .propuestas .screen.personas .video img, .propuestas .screen.excelencia .video img, .propuestas .screen.contrapeso .video img {
+    .equipo-kuma div.equipo-strip .fleft, .equipo-kuma div.equipo-strip .fright {
+      position: absolute;
+      top: 0;
+      height: 30em; }
+    .equipo-kuma div.equipo-strip .fleft {
+      left: 0; }
+    .equipo-kuma div.equipo-strip .fright {
+      right: 0; }
+    .equipo-kuma div.equipo-strip a {
+	text-decoration: none;
+	display: inline-block;
+	padding: 0.3em 0;
+	position: relative;
+	height: 3em;
+	width: 400px;
+	color: black;
+	font-size: 2em;
+	line-height: 4em;
+}
+      .equipo-kuma div.equipo-strip a img {
+        width: 50px;
+        position: absolute;
+        top: 1.5em;
+        left: 0.7em;
+        vertical-align: middle; }
+        .equipo-kuma div.equipo-strip a img.gray {
+          z-index: 1; }
+        .equipo-kuma div.equipo-strip a img.color {
+          z-index: 2;
+          opacity: 0;
+          -webkit-transition: all 1s ease;
+          -moz-transition: all 1s ease;
+          transition: all 1s ease; }
+    .equipo-kuma div.equipo-strip a:hover {
+      color: #FA5651; }
+      .equipo-kuma div.equipo-strip a:hover img.color {
+        opacity: 1; }
+  .equipo-kuma div.listado {
+    clear: both;
+    margin: 0 auto;
+    width: 900px; }
+    .equipo-kuma div.listado a {
+      color: #3366BB; }
+    .equipo-kuma div.listado div.half {
+      float: left;
+      width: 47%; }
+      .equipo-kuma div.listado div.half.left {
+        text-align: right;
+        margin-right: 5%; }
+      .equipo-kuma div.listado div.half.right {
+        text-align: left; }
+      .equipo-kuma div.listado div.half div {
+        margin: 1em 0;
+        margin-bottom: 2em; }
+        .equipo-kuma div.listado div.half div strong {
+          font-size: 1.2em; }
+        .equipo-kuma div.listado div.half div span {
+          display: block;
+          font-variant: small-caps;
+          font-size: 1.1em; }
+        .equipo-kuma div.listado div.half div em {
+          display: block; }
+
+.iniciativas {
+  background: #1A2A35 url(../img/bkg/iniciativas.jpg) no-repeat;
+  background-size: 100% auto;
+  height: 300px; }
+
+.footer {
+  color: white;
+  text-align: center;
+  background: #1A2A35;
+  height: 250px;
+  padding-top: 2em;
+  font-size: 1.2em; }
+  .footer a {
+    display: inline-block;
+    padding: 0.3em 2em;
+    position: relative;
+    height: 60px; }
+    .footer a img {
+      width: 45px;
       position: absolute;
       top: 0;
       left: 0;
-      width: 720px;
-      height: 1280px; }
-  .propuestas .screen.democratica .fb, .propuestas .screen.sostenible .fb, .propuestas .screen.incluyente .fb, .propuestas .screen.personas .fb, .propuestas .screen.excelencia .fb, .propuestas .screen.contrapeso .fb {
-    border-left: 1px solid #ccc;
-    text-align: center; }
-  .propuestas .screen.democratica .fb img, .propuestas .screen.sostenible .fb img, .propuestas .screen.incluyente .fb img, .propuestas .screen.personas .fb img, .propuestas .screen.excelencia .fb img, .propuestas .screen.contrapeso .fb img {
-    width: 511px; }
-  .propuestas .screen.democratica .text, .propuestas .screen.sostenible .text, .propuestas .screen.incluyente .text, .propuestas .screen.personas .text, .propuestas .screen.excelencia .text, .propuestas .screen.contrapeso .text {
-    background: #f6f1e9 url(/img/ui/kumatile.jpg); }
-    .propuestas .screen.democratica .text h2, .propuestas .screen.sostenible .text h2, .propuestas .screen.incluyente .text h2, .propuestas .screen.personas .text h2, .propuestas .screen.excelencia .text h2, .propuestas .screen.contrapeso .text h2 {
-      text-transform: uppercase;
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-size: 3em;
-      width: 100%;
-      margin-top: 0.5em;
-      margin-bottom: 0;
-      margin-left: 10em;
-      padding: 0.2em 0;
-      font-weight: 200;
-      background: transparent;
-      text-align: left; }
-      .propuestas .screen.democratica .text h2 img, .propuestas .screen.sostenible .text h2 img, .propuestas .screen.incluyente .text h2 img, .propuestas .screen.personas .text h2 img, .propuestas .screen.excelencia .text h2 img, .propuestas .screen.contrapeso .text h2 img {
-        height: 1.5em;
-        vertical-align: middle;
-        margin-right: 0.3em; }
-      .propuestas .screen.democratica .text h2 a, .propuestas .screen.sostenible .text h2 a, .propuestas .screen.incluyente .text h2 a, .propuestas .screen.personas .text h2 a, .propuestas .screen.excelencia .text h2 a, .propuestas .screen.contrapeso .text h2 a {
-        text-decoration: none;
-        color: #000; }
-        .propuestas .screen.democratica .text h2 a img.kumalogo, .propuestas .screen.sostenible .text h2 a img.kumalogo, .propuestas .screen.incluyente .text h2 a img.kumalogo, .propuestas .screen.personas .text h2 a img.kumalogo, .propuestas .screen.excelencia .text h2 a img.kumalogo, .propuestas .screen.contrapeso .text h2 a img.kumalogo {
-          position: absolute;
-          height: 4.2em;
-          left: 5.5em;
-          top: 0.5em; }
-        .propuestas .screen.democratica .text h2 a:hover img, .propuestas .screen.sostenible .text h2 a:hover img, .propuestas .screen.incluyente .text h2 a:hover img, .propuestas .screen.personas .text h2 a:hover img, .propuestas .screen.excelencia .text h2 a:hover img, .propuestas .screen.contrapeso .text h2 a:hover img {
-          -webkit-transform: scale(1.1);
-          -moz-transform: scale(1.1);
-          -ms-transform: scale(1.1);
-          -o-transform: scale(1.1);
-          transform: scale(1.1); }
-    .propuestas .screen.democratica .text h1, .propuestas .screen.sostenible .text h1, .propuestas .screen.incluyente .text h1, .propuestas .screen.personas .text h1, .propuestas .screen.excelencia .text h1, .propuestas .screen.contrapeso .text h1 {
-      text-align: left;
-      margin-left: 0;
-      margin-top: 0;
-      padding: 0.4em 0;
-      padding-top: 0.2em;
-      padding-left: 6em;
-      font-size: 5em;
-      background-color: #f0ecdc;
-      background-image: -webkit-linear-gradient(right, #f0ecdc, #EACCCC, #f0ecdc);
-      background-image: linear-gradient(to left,#f0ecdc, #EACCCC, #f0ecdc); }
-    .propuestas .screen.democratica .text div.icono, .propuestas .screen.sostenible .text div.icono, .propuestas .screen.incluyente .text div.icono, .propuestas .screen.personas .text div.icono, .propuestas .screen.excelencia .text div.icono, .propuestas .screen.contrapeso .text div.icono {
-      margin: 2em auto;
-      text-align: center; }
-      .propuestas .screen.democratica .text div.icono img, .propuestas .screen.sostenible .text div.icono img, .propuestas .screen.incluyente .text div.icono img, .propuestas .screen.personas .text div.icono img, .propuestas .screen.excelencia .text div.icono img, .propuestas .screen.contrapeso .text div.icono img {
-        width: 25em; }
-        .propuestas .screen.democratica .text div.icono img:hover, .propuestas .screen.sostenible .text div.icono img:hover, .propuestas .screen.incluyente .text div.icono img:hover, .propuestas .screen.personas .text div.icono img:hover, .propuestas .screen.excelencia .text div.icono img:hover, .propuestas .screen.contrapeso .text div.icono img:hover {
-          -webkit-transform: scale(1.2);
-          -moz-transform: scale(1.2);
-          -ms-transform: scale(1.2);
-          -o-transform: scale(1.2);
-          transform: scale(1.2); }
-    .propuestas .screen.democratica .text p, .propuestas .screen.democratica .text ol li, .propuestas .screen.sostenible .text p, .propuestas .screen.sostenible .text ol li, .propuestas .screen.incluyente .text p, .propuestas .screen.incluyente .text ol li, .propuestas .screen.personas .text p, .propuestas .screen.personas .text ol li, .propuestas .screen.excelencia .text p, .propuestas .screen.excelencia .text ol li, .propuestas .screen.contrapeso .text p, .propuestas .screen.contrapeso .text ol li {
-      margin: 0 2em;
-      padding: 0.7em 1em;
-      padding-bottom: 0.3em; }
-    .propuestas .screen.democratica .text p, .propuestas .screen.sostenible .text p, .propuestas .screen.incluyente .text p, .propuestas .screen.personas .text p, .propuestas .screen.excelencia .text p, .propuestas .screen.contrapeso .text p {
-      margin: 0;
-      padding: 1.5em 3em;
-      padding-left: 5em;
-      padding-top: 1em; }
-    .propuestas .screen.democratica .text p, .propuestas .screen.democratica .text ol, .propuestas .screen.sostenible .text p, .propuestas .screen.sostenible .text ol, .propuestas .screen.incluyente .text p, .propuestas .screen.incluyente .text ol, .propuestas .screen.personas .text p, .propuestas .screen.personas .text ol, .propuestas .screen.excelencia .text p, .propuestas .screen.excelencia .text ol, .propuestas .screen.contrapeso .text p, .propuestas .screen.contrapeso .text ol {
-      width: 60%;
-      margin: 0 auto; }
-    .propuestas .screen.democratica .text p.propuestas, .propuestas .screen.sostenible .text p.propuestas, .propuestas .screen.incluyente .text p.propuestas, .propuestas .screen.personas .text p.propuestas, .propuestas .screen.excelencia .text p.propuestas, .propuestas .screen.contrapeso .text p.propuestas {
-      padding: 0.5em 4.1em; }
-    .propuestas .screen.democratica .text .nota-fb, .propuestas .screen.sostenible .text .nota-fb, .propuestas .screen.incluyente .text .nota-fb, .propuestas .screen.personas .text .nota-fb, .propuestas .screen.excelencia .text .nota-fb, .propuestas .screen.contrapeso .text .nota-fb {
-      text-decoration: none; }
-      .propuestas .screen.democratica .text .nota-fb img.fb-icon, .propuestas .screen.sostenible .text .nota-fb img.fb-icon, .propuestas .screen.incluyente .text .nota-fb img.fb-icon, .propuestas .screen.personas .text .nota-fb img.fb-icon, .propuestas .screen.excelencia .text .nota-fb img.fb-icon, .propuestas .screen.contrapeso .text .nota-fb img.fb-icon {
-        width: 2em;
-        vertical-align: bottom; }
-      .propuestas .screen.democratica .text .nota-fb img.youtube-still, .propuestas .screen.sostenible .text .nota-fb img.youtube-still, .propuestas .screen.incluyente .text .nota-fb img.youtube-still, .propuestas .screen.personas .text .nota-fb img.youtube-still, .propuestas .screen.excelencia .text .nota-fb img.youtube-still, .propuestas .screen.contrapeso .text .nota-fb img.youtube-still {
-        float: left;
-        width: 12em;
-        margin-right: 1em; }
-    .propuestas .screen.democratica .text ol li, .propuestas .screen.sostenible .text ol li, .propuestas .screen.incluyente .text ol li, .propuestas .screen.personas .text ol li, .propuestas .screen.excelencia .text ol li, .propuestas .screen.contrapeso .text ol li {
-      margin-top: 0;
-      margin-left: 4em; }
-    .propuestas .screen.democratica .text .confetti, .propuestas .screen.sostenible .text .confetti, .propuestas .screen.incluyente .text .confetti, .propuestas .screen.personas .text .confetti, .propuestas .screen.excelencia .text .confetti, .propuestas .screen.contrapeso .text .confetti {
-      text-align: center;
-      display: block; }
-      .propuestas .screen.democratica .text .confetti img, .propuestas .screen.sostenible .text .confetti img, .propuestas .screen.incluyente .text .confetti img, .propuestas .screen.personas .text .confetti img, .propuestas .screen.excelencia .text .confetti img, .propuestas .screen.contrapeso .text .confetti img {
-        width: 35em;
-        margin: 1em 0;
-        margin-top: 0.4em; }
-.propuestas .screen.personas .text h2, .propuestas .screen.excelencia .text h2, .propuestas .screen.contrapeso .text h2 {
-  background: transparent; }
-.propuestas .screen.personas .text h1, .propuestas .screen.excelencia .text h1, .propuestas .screen.contrapeso .text h1 {
-  background-color: #f0ecdc;
-  background-image: -webkit-linear-gradient(right, #f0ecdc, #BBDAD3, #f0ecdc);
-  background-image: linear-gradient(to left,#f0ecdc, #BBDAD3, #f0ecdc); }
+      vertical-align: middle; }
+      .footer a img.white {
+        z-index: 1; }
+      .footer a img.color {
+        z-index: 2;
+        opacity: 0;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        transition: all 1s ease; }
+    .footer a.twitter img {
+      top: 5px;
+      width: 60px; }
+    .footer a.facebook img {
+      width: 60px; }
+    .footer a.correo img {
+      left: -15px;
+      top: -2px; }
+    .footer a.telefono img {
+      left: -15px;
+      top: -5px; }
+    .footer a:hover img.color {
+      opacity: 1; }
+    .footer a.campaña {
+      font-size: 0.7em;
+      text-decoration: underline; }
 
-/************************** ;PRINCIPIOS **************************/
-.principios {
-  vertical-align: top; }
-  .principios h2 {
-    font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-    font-weight: normal;
-    font-size: 5em;
-    text-align: center;
-    margin: 0.7em 0;
-    color: #000;
-    text-align: center; }
-  .principios .screen .text {
-    width: 69%;
-    height: 100%;
-    display: inline-block;
-    vertical-align: top;
-    position: relative; }
-    .principios .screen .text h2 {
-      font-size: 4.5em;
-      padding-left: 1.9em; }
-    .principios .screen .text a.inicio {
-      text-decoration: none;
-      color: #000; }
-    .principios .screen .text img.kumalogo {
-      position: absolute;
-      height: 11.5em;
-      left: 19em;
-      top: 4em; }
-  .principios .screen .fb {
-    width: 30%;
-    display: inline-block;
-    vertical-align: top;
-    height: 100%;
-    overflow: hidden;
-    max-width: 550px;
-    text-align: center;
-    border-left: 1px solid #ccc;
-    /*img {width:511px}*/ }
-  .principios .screen.toc .ciudad h2 {
-    font-size: 6em;
-    color: white;
-    margin: 0;
-    text-align: left; }
-  .principios .screen.toc .lista {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    text-align: center; }
-    .principios .screen.toc .lista a {
-      display: inline-block;
-      margin: 0.75em 0;
-      font-size: 3.5em;
-      line-height: 1.7em;
-      color: #000;
-      text-decoration: none;
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      text-align: left; }
-      .principios .screen.toc .lista a span {
-        width: 4em;
-        display: inline-block;
-        text-align: center;
-        position: relative; }
-        .principios .screen.toc .lista a span img {
-          height: 2.5em;
-          vertical-align: middle;
-          position: absolute;
-          top: -1.5em;
-          left: 0.3em; }
-      .principios .screen.toc .lista a:hover img {
-        -webkit-transform: scale(1.2);
-        -moz-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-        -o-transform: scale(1.2);
-        transform: scale(1.2); }
-      .principios .screen.toc .lista a.colectiva {
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(left, #f0ecdc, #B7D8D4);
-        background-image: linear-gradient(to right,#f0ecdc, #B7D8D4); }
-        .principios .screen.toc .lista a.colectiva span {
-          width: 4.5em; }
-        .principios .screen.toc .lista a.colectiva:hover {
-          background-color: #f0ecdc;
-          background-image: -webkit-linear-gradient(left, #f0ecdc, #5fc5b8);
-          background-image: linear-gradient(to right,#f0ecdc, #5fc5b8); }
-      .principios .screen.toc .lista a.participacion {
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(left, #f0ecdc, #C2DBE4);
-        background-image: linear-gradient(to right,#f0ecdc, #C2DBE4); }
-        .principios .screen.toc .lista a.participacion:hover {
-          background-color: #f0ecdc;
-          background-image: -webkit-linear-gradient(left, #f0ecdc, #8cb7c7);
-          background-image: linear-gradient(to right,#f0ecdc, #8cb7c7); }
-      .principios .screen.toc .lista a.apertura {
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(left, #f0ecdc, #B4B4BB);
-        background-image: linear-gradient(to right,#f0ecdc, #B4B4BB); }
-        .principios .screen.toc .lista a.apertura:hover {
-          background-color: #f0ecdc;
-          background-image: -webkit-linear-gradient(left, #f0ecdc, #626264);
-          background-image: linear-gradient(to right,#f0ecdc, #626264); }
-      .principios .screen.toc .lista a.innovacion {
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(left, #f0ecdc, #EDAC9C);
-        background-image: linear-gradient(to right,#f0ecdc, #EDAC9C); }
-        .principios .screen.toc .lista a.innovacion:hover {
-          background-color: #f0ecdc;
-          background-image: -webkit-linear-gradient(left, #f0ecdc, #d6765e);
-          background-image: linear-gradient(to right,#f0ecdc, #d6765e); }
-      .principios .screen.toc .lista a.transparencia {
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(right, #f0ecdc, #E8A3A7);
-        background-image: linear-gradient(to left,#f0ecdc, #E8A3A7); }
-        .principios .screen.toc .lista a.transparencia:hover {
-          background-color: #f0ecdc;
-          background-image: -webkit-linear-gradient(right, #f0ecdc, #c8595f);
-          background-image: linear-gradient(to left,#f0ecdc, #c8595f); }
-      .principios .screen.toc .lista a.derechos {
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(right, #f0ecdc, #EDC2D4);
-        background-image: linear-gradient(to left,#f0ecdc, #EDC2D4); }
-        .principios .screen.toc .lista a.derechos:hover {
-          background-color: #f0ecdc;
-          background-image: -webkit-linear-gradient(right, #f0ecdc, #d98ead);
-          background-image: linear-gradient(to left,#f0ecdc, #d98ead); }
-      .principios .screen.toc .lista a.genero {
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(right, #f0ecdc, #DBCCE0);
-        background-image: linear-gradient(to left,#f0ecdc, #DBCCE0); }
-        .principios .screen.toc .lista a.genero:hover {
-          background-color: #f0ecdc;
-          background-image: -webkit-linear-gradient(right, #f0ecdc, #b8a6be);
-          background-image: linear-gradient(to left,#f0ecdc, #b8a6be); }
-    .principios .screen.toc .lista .left, .principios .screen.toc .lista .right {
-      width: 49%;
-      display: inline-block;
-      vertical-align: top;
-      text-align: left; }
-    .principios .screen.toc .lista .left {
-      text-align: right; }
-      .principios .screen.toc .lista .left a {
-        text-align: right;
-        padding-left: 1em; }
-        .principios .screen.toc .lista .left a.apertura img {
-          left: 0.6em; }
-        .principios .screen.toc .lista .left a.innovacion img {
-          left: 0.7em; }
-    .principios .screen.toc .lista .right a {
-      padding-right: 1em;
-      margin-left: 1em; }
-      .principios .screen.toc .lista .right a img {
-        left: 0.8em; }
-  .principios .screen.colectiva, .principios .screen.participacion, .principios .screen.apertura, .principios .screen.innovacion, .principios .screen.genero, .principios .screen.derechos, .principios .screen.transparencia {
-    position: relative; }
-    .principios .screen.colectiva .confetti, .principios .screen.participacion .confetti, .principios .screen.apertura .confetti, .principios .screen.innovacion .confetti, .principios .screen.genero .confetti, .principios .screen.derechos .confetti, .principios .screen.transparencia .confetti {
-      text-align: center;
-      display: block; }
-      .principios .screen.colectiva .confetti img, .principios .screen.participacion .confetti img, .principios .screen.apertura .confetti img, .principios .screen.innovacion .confetti img, .principios .screen.genero .confetti img, .principios .screen.derechos .confetti img, .principios .screen.transparencia .confetti img {
-        width: 35em;
-        margin: 1em 0;
-        margin-top: 0.4em; }
-    .principios .screen.colectiva p, .principios .screen.participacion p, .principios .screen.apertura p, .principios .screen.innovacion p, .principios .screen.genero p, .principios .screen.derechos p, .principios .screen.transparencia p {
-      font-size: 1.5em;
-      width: 60%;
-      margin: 0 auto;
-      margin-bottom: 0.6em; }
-      .principios .screen.colectiva p strong, .principios .screen.participacion p strong, .principios .screen.apertura p strong, .principios .screen.innovacion p strong, .principios .screen.genero p strong, .principios .screen.derechos p strong, .principios .screen.transparencia p strong {
-        font-size: 1.2em;
-        display: block;
-        margin-bottom: 0.6em; }
-    .principios .screen.colectiva h2, .principios .screen.participacion h2, .principios .screen.apertura h2, .principios .screen.innovacion h2, .principios .screen.genero h2, .principios .screen.derechos h2, .principios .screen.transparencia h2 {
-      line-height: 1.4em;
-      padding-bottom: 0.2em;
-      margin-top: 0;
-      text-align: left;
-      padding-left: 7.05em; }
-    .principios .screen.colectiva h3, .principios .screen.participacion h3, .principios .screen.apertura h3, .principios .screen.innovacion h3, .principios .screen.genero h3, .principios .screen.derechos h3, .principios .screen.transparencia h3 {
-      text-transform: uppercase;
-      font-weight: 200;
-      text-align: left;
-      width: 100%;
-      margin: 0;
-      margin-left: 10.6em;
-      padding: 0.5em 0;
-      padding-top: 1.5em;
-      font-size: 3em; }
-    .principios .screen.colectiva .text > .icono, .principios .screen.participacion .text > .icono, .principios .screen.apertura .text > .icono, .principios .screen.innovacion .text > .icono, .principios .screen.genero .text > .icono, .principios .screen.derechos .text > .icono, .principios .screen.transparencia .text > .icono {
-      text-align: center; }
-      .principios .screen.colectiva .text > .icono img, .principios .screen.participacion .text > .icono img, .principios .screen.apertura .text > .icono img, .principios .screen.innovacion .text > .icono img, .principios .screen.genero .text > .icono img, .principios .screen.derechos .text > .icono img, .principios .screen.transparencia .text > .icono img {
-        margin-top: 4em;
-        width: 35em; }
-        .principios .screen.colectiva .text > .icono img:hover, .principios .screen.participacion .text > .icono img:hover, .principios .screen.apertura .text > .icono img:hover, .principios .screen.innovacion .text > .icono img:hover, .principios .screen.genero .text > .icono img:hover, .principios .screen.derechos .text > .icono img:hover, .principios .screen.transparencia .text > .icono img:hover {
-          -webkit-transform: scale(1.2);
-          -moz-transform: scale(1.2);
-          -ms-transform: scale(1.2);
-          -o-transform: scale(1.2);
-          transform: scale(1.2); }
-  .principios .screen.colectiva h2 {
-    background-color: #f0ecdc;
-    background-image: -webkit-linear-gradient(right, #f0ecdc, #5fc5b8, #f0ecdc);
-    background-image: linear-gradient(to left,#f0ecdc, #5fc5b8, #f0ecdc); }
-  .principios .screen.colectiva .text > .icono img {
-    width: 40em; }
-  .principios .screen.participacion h2 {
-    background-color: #f0ecdc;
-    background-image: -webkit-linear-gradient(right, #f0ecdc, #8cb7c7, #f0ecdc);
-    background-image: linear-gradient(to left,#f0ecdc, #8cb7c7, #f0ecdc); }
-  .principios .screen.apertura h2 {
-    background-color: #f0ecdc;
-    background-image: -webkit-linear-gradient(right, #f0ecdc, #626264, #f0ecdc);
-    background-image: linear-gradient(to left,#f0ecdc, #626264, #f0ecdc);
-    color: white; }
-  .principios .screen.apertura .text > .icono img {
-    width: 30em; }
-  .principios .screen.innovacion h2 {
-    background-color: #f0ecdc;
-    background-image: -webkit-linear-gradient(right, #f0ecdc, #d6765e, #f0ecdc);
-    background-image: linear-gradient(to left,#f0ecdc, #d6765e, #f0ecdc); }
-  .principios .screen.innovacion .text > .icono img {
-    width: 30em; }
-  .principios .screen.transparencia h2 {
-    background-color: #f0ecdc;
-    background-image: -webkit-linear-gradient(right, #f0ecdc, #c8595f, #f0ecdc);
-    background-image: linear-gradient(to left,#f0ecdc, #c8595f, #f0ecdc);
-    line-height: 1.1em; }
-  .principios .screen.transparencia .text > .icono img {
-    width: 25em; }
-  .principios .screen.derechos h2 {
-    background-color: #f0ecdc;
-    background-image: -webkit-linear-gradient(right, #f0ecdc, #d98ead, #f0ecdc);
-    background-image: linear-gradient(to left,#f0ecdc, #d98ead, #f0ecdc); }
-  .principios .screen.derechos .text > .icono img {
-    width: 30em; }
-  .principios .screen.genero h2 {
-    background-color: #f0ecdc;
-    background-image: -webkit-linear-gradient(right, #f0ecdc, #b8a6be, #f0ecdc);
-    background-image: linear-gradient(to left,#f0ecdc, #b8a6be, #f0ecdc); }
-
-/************************** ;COMPROMISOS **************************/
-.compromisos .screen {
-  overflow: hidden;
-  /*.infografia { width:30%; height:100%; display:inline-block; text-align:center; background:#B3D7DA;*/
-  /*img {width:80%; margin-top:5em}*/
-  /*}*/ }
-  .compromisos .screen .fb, .compromisos .screen .text {
-    display: inline-block;
-    vertical-align: top;
-    height: 100%;
-    overflow: hidden; }
-  .compromisos .screen .fb {
-    width: 30%;
-    max-width: 550px;
-    border-left: 1px solid #aaa;
-    text-align: center;
-    overflow: scroll; }
-    .compromisos .screen .fb .fb-container {
-      width: 95%;
-      margin: 0 auto;
-      margin-top: 1em; }
-  .compromisos .screen.toc {
-    text-align: left;
-    /*h2 {color:rgb(200, 112, 114);}*/ }
-    .compromisos .screen.toc p {
-      font-family: Helvetica;
-      font-size: 1.5em;
-      width: 30em;
-      margin: 1.5em auto;
-      text-align: left; }
-      .compromisos .screen.toc p a, .compromisos .screen.toc p strong {
-        color: #c87072; }
-      .compromisos .screen.toc p b {
-        color: #379088; }
-    .compromisos .screen.toc div.toc {
-      text-align: left;
-      margin-top: 8em; }
-      .compromisos .screen.toc div.toc a {
-        display: inline-block;
-        width: 49.9%;
-        font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-        font-size: 5em;
-        font-weight: 200;
-        text-decoration: none;
-        margin: 0;
-        color: black; }
-        .compromisos .screen.toc div.toc a span {
-          position: relative;
-          width: 4.8em;
-          display: inline-block; }
-          .compromisos .screen.toc div.toc a span img {
-            vertical-align: middle;
-            height: 2.5em;
-            margin: 0 1em;
-            position: absolute; }
-        .compromisos .screen.toc div.toc a:hover img {
-          -webkit-transform: scale(1.2);
-          -moz-transform: scale(1.2);
-          -ms-transform: scale(1.2);
-          -o-transform: scale(1.2);
-          transform: scale(1.2); }
-      .compromisos .screen.toc div.toc a.en-campanha {
-        text-align: right;
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(left, #f0ecdc, #EACCCC);
-        background-image: linear-gradient(to right,#f0ecdc, #EACCCC); }
-        .compromisos .screen.toc div.toc a.en-campanha img {
-          text-align: right;
-          height: 2.1em;
-          top: -1.5em;
-          left: -0.7em; }
-        .compromisos .screen.toc div.toc a.en-campanha:hover {
-          background-color: #f0ecdc;
-          background-image: -webkit-linear-gradient(left, #f0ecdc, #D86D74);
-          background-image: linear-gradient(to right,#f0ecdc, #D86D74); }
-      .compromisos .screen.toc div.toc a.en-el-congreso {
-        text-align: left;
-        background-color: #f0ecdc;
-        background-image: -webkit-linear-gradient(right, #f0ecdc, #DAECE8);
-        background-image: linear-gradient(to left,#f0ecdc, #DAECE8); }
-        .compromisos .screen.toc div.toc a.en-el-congreso span {
-          width: 4em; }
-          .compromisos .screen.toc div.toc a.en-el-congreso span img {
-            top: -2em;
-            left: -0.2em; }
-        .compromisos .screen.toc div.toc a.en-el-congreso:hover {
-          background-color: #f0ecdc;
-          background-image: -webkit-linear-gradient(right, #f0ecdc, #93D2C8);
-          background-image: linear-gradient(to left,#f0ecdc, #93D2C8); }
-  .compromisos .screen .text {
-    /*width:69.5%; display:inline-block; vertical-align:top;*/
-    /*span.hidden, span.menos {display:none}*/
-    /*span.hidden {font-size:80%}*/
-    /*a.leer-mas { text-transform:uppercase; text-decoration:none; color:black; background:#e9eaed; display:inline-block; padding:.5em 1em; font-size:0.7em;*/
-    /*font-family:"FF Meta W01", Helvetica, Arial, sans-serif;*/
-    /*&:hover {text-decoration:underline; background:#555; color:#fff;}*/
-    /*}*/
-    /*&.leer-mas {height:100%;*/
-    /*span.hidden, span.menos {display:inline}*/
-    /*span.summary {display:none}*/
-    /*a.leer-mas {background:#ccc}*/
-    /*span.mas {display:none}*/
-    /*ol {font-size:1.4em;}*/
-    /*li {margin-top:1em; margin-bottom:1em}*/
-    /*.fb {display:none}*/
-    /*}*/
-    /*.fb { background:#e9eaed; text-align:center; border-top:1px solid #ccc; overflow:hidden}*/ }
-    .compromisos .screen .text a.inicio {
-      text-decoration: none; }
-    .compromisos .screen .text img.kumalogo {
-      position: absolute;
-      height: 13em;
-      left: 11em;
-      top: 2.5em; }
-    .compromisos .screen .text h2 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 6em;
-      text-align: left;
-      margin: 0;
-      color: #000;
-      width: 100%;
-      padding-left: 1em;
-      line-height: 1.5em;
-      padding-left: 4.25em; }
-    .compromisos .screen .text h3 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 3em;
-      margin: 0;
-      text-transform: uppercase;
-      color: #000;
-      width: 100%;
-      text-align: left;
-      margin-left: 8.6em;
-      margin-top: 0.8em;
-      margin-bottom: 0.2em; }
-    .compromisos .screen .text ol {
-      font-size: 1.5em;
-      font-family: Helvetica;
-      margin: 0 auto;
-      margin-top: 2em;
-      counter-reset: item;
-      width: 65%; }
-      .compromisos .screen .text ol.congreso {
-        counter-reset: item 7; }
-      .compromisos .screen .text ol li:before {
-        content: counter(item) ". ";
-        counter-increment: item;
-        color: #999;
-        display: inline-block;
-        width: 3em;
-        float: left;
-        margin-left: -7em;
-        text-align: right; }
-      .compromisos .screen .text ol li {
-        padding: 0.5em 1em;
-        display: block;
-        line-height: 1.2em; }
-        .compromisos .screen .text ol li strong {
-          color: #c87072; }
-        .compromisos .screen .text ol li img.bullet {
-          float: left;
-          width: 1.5em;
-          margin-left: -3em; }
-      .compromisos .screen .text ol span.hidden {
-        font-size: 0.9em;
-        padding-left: 2em;
-        padding-right: 1em; }
-      .compromisos .screen .text ol li.menos a.leer-mas {
-        margin-left: 2em; }
-  .compromisos .screen.campanha .nota-fb img, .compromisos .screen.congreso .nota-fb img {
-    width: 1.5em;
-    vertical-align: middle; }
-  .compromisos .screen.campanha .icono, .compromisos .screen.congreso .icono {
-    text-align: center;
-    margin-top: 5em; }
-    .compromisos .screen.campanha .icono img, .compromisos .screen.congreso .icono img {
-      height: 20em; }
-      .compromisos .screen.campanha .icono img:hover, .compromisos .screen.congreso .icono img:hover {
-        -webkit-transform: scale(1.2);
-        -moz-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-        -o-transform: scale(1.2);
-        transform: scale(1.2); }
-  .compromisos .screen.campanha .text .hidden .icono, .compromisos .screen.congreso .text .hidden .icono {
-    margin-top: 0; }
-    .compromisos .screen.campanha .text .hidden .icono img, .compromisos .screen.congreso .text .hidden .icono img {
-      height: 3em;
-      float: left;
-      margin-left: -4em;
-      margin-top: 1em; }
-  .compromisos .screen.campanha h2 {
-    background-color: #f0ecdc;
-    background-image: -webkit-linear-gradient(right, #f0ecdc, #EACCCC, #f0ecdc);
-    background-image: linear-gradient(to left,#f0ecdc, #EACCCC, #f0ecdc); }
-  .compromisos .screen.congreso h2 {
-    background-color: #f0ecdc;
-    background-image: -webkit-linear-gradient(right, #f0ecdc, #BBDAD3, #f0ecdc);
-    background-image: linear-gradient(to left,#f0ecdc, #BBDAD3, #f0ecdc); }
-  .compromisos .screen.congreso .icono {
-    margin-top: 1.3em; }
-  .compromisos .screen.bienvenida {
-    position: relative; }
-    .compromisos .screen.bienvenida img.kuma-benji {
-      position: absolute;
-      top: 0;
-      left: 0; }
-    .compromisos .screen.bienvenida div.copy {
-      position: absolute;
-      bottom: 3em;
-      right: 4em;
-      z-index: 2;
-      background-color: white;
-      padding: 1em 3em;
-      font-size: 1.5em;
-      font-family: "L Futura W01", Helvetica;
-      width: 30em; }
-      .compromisos .screen.bienvenida div.copy strong {
-        color: #c87072;
-        font-size: 1em; }
-      .compromisos .screen.bienvenida div.copy b {
-        color: #379088; }
-
-.propuestas .fb, .compromisos .fb, .principios .fb {
-  position: relative;
-  background: #cfe3e9 url(/img/ui/muros-fb.jpg);
-  background-size: 100%;
-  background-position: 0 bottom;
-  background-repeat: no-repeat; }
-  .propuestas .fb .fb-container, .compromisos .fb .fb-container, .principios .fb .fb-container {
-    background: #e4f4f9;
-    padding: 1% 2.5%;
-    margin-top: 1em;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 25em; }
-  .propuestas .fb .fb-phrase, .compromisos .fb .fb-phrase, .principios .fb .fb-phrase {
-    font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-    font-weight: 200;
-    width: 100%;
-    text-align: center;
-    color: #91AFB8;
-    position: absolute;
-    z-index: 1;
-    bottom: 10em;
-    font-size: 2.5em;
-    line-height: 0.95em; }
-    .propuestas .fb .fb-phrase small, .compromisos .fb .fb-phrase small, .principios .fb .fb-phrase small {
-      display: block;
-      width: 75%;
-      margin: 0 auto;
-      margin-top: 1.5em;
-      font-style: italic;
-      font-size: 0.7em; }
-
-/************************** ;LEER MAS **************************/
-.propuestas .copy p.mas, .propuestas .copy li.mas, .propuestas .copy p.menos, .propuestas .copy li.menos, .propuestas .text p.mas, .propuestas .text li.mas, .propuestas .text p.menos, .propuestas .text li.menos, .compromisos .copy p.mas, .compromisos .copy li.mas, .compromisos .copy p.menos, .compromisos .copy li.menos, .compromisos .text p.mas, .compromisos .text li.mas, .compromisos .text p.menos, .compromisos .text li.menos {
-  cursor: pointer; }
-  .propuestas .copy p.mas span.mas span.label, .propuestas .copy li.mas span.mas span.label, .propuestas .copy p.menos span.mas span.label, .propuestas .copy li.menos span.mas span.label, .propuestas .text p.mas span.mas span.label, .propuestas .text li.mas span.mas span.label, .propuestas .text p.menos span.mas span.label, .propuestas .text li.menos span.mas span.label, .compromisos .copy p.mas span.mas span.label, .compromisos .copy li.mas span.mas span.label, .compromisos .copy p.menos span.mas span.label, .compromisos .copy li.menos span.mas span.label, .compromisos .text p.mas span.mas span.label, .compromisos .text li.mas span.mas span.label, .compromisos .text p.menos span.mas span.label, .compromisos .text li.menos span.mas span.label {
-    display: none; }
-  .propuestas .copy p.mas:hover, .propuestas .copy li.mas:hover, .propuestas .copy p.menos:hover, .propuestas .copy li.menos:hover, .propuestas .text p.mas:hover, .propuestas .text li.mas:hover, .propuestas .text p.menos:hover, .propuestas .text li.menos:hover, .compromisos .copy p.mas:hover, .compromisos .copy li.mas:hover, .compromisos .copy p.menos:hover, .compromisos .copy li.menos:hover, .compromisos .text p.mas:hover, .compromisos .text li.mas:hover, .compromisos .text p.menos:hover, .compromisos .text li.menos:hover {
-    background: #fff;
-    /*span.mas span.label {display:inline}*/ }
-    .propuestas .copy p.mas:hover a.leer-mas, .propuestas .copy li.mas:hover a.leer-mas, .propuestas .copy p.menos:hover a.leer-mas, .propuestas .copy li.menos:hover a.leer-mas, .propuestas .text p.mas:hover a.leer-mas, .propuestas .text li.mas:hover a.leer-mas, .propuestas .text p.menos:hover a.leer-mas, .propuestas .text li.menos:hover a.leer-mas, .compromisos .copy p.mas:hover a.leer-mas, .compromisos .copy li.mas:hover a.leer-mas, .compromisos .copy p.menos:hover a.leer-mas, .compromisos .copy li.menos:hover a.leer-mas, .compromisos .text p.mas:hover a.leer-mas, .compromisos .text li.mas:hover a.leer-mas, .compromisos .text p.menos:hover a.leer-mas, .compromisos .text li.menos:hover a.leer-mas {
-      background: #b4b0ab; }
-    .propuestas .copy p.mas:hover a.leer-mas:hover, .propuestas .copy li.mas:hover a.leer-mas:hover, .propuestas .copy p.menos:hover a.leer-mas:hover, .propuestas .copy li.menos:hover a.leer-mas:hover, .propuestas .text p.mas:hover a.leer-mas:hover, .propuestas .text li.mas:hover a.leer-mas:hover, .propuestas .text p.menos:hover a.leer-mas:hover, .propuestas .text li.menos:hover a.leer-mas:hover, .compromisos .copy p.mas:hover a.leer-mas:hover, .compromisos .copy li.mas:hover a.leer-mas:hover, .compromisos .copy p.menos:hover a.leer-mas:hover, .compromisos .copy li.menos:hover a.leer-mas:hover, .compromisos .text p.mas:hover a.leer-mas:hover, .compromisos .text li.mas:hover a.leer-mas:hover, .compromisos .text p.menos:hover a.leer-mas:hover, .compromisos .text li.menos:hover a.leer-mas:hover {
-      background: #8b8884;
-      text-decoration: none; }
-.propuestas .copy p.mas span.hidden, .propuestas .copy p.mas span.menos, .propuestas .copy li.mas span.hidden, .propuestas .copy li.mas span.menos, .propuestas .text p.mas span.hidden, .propuestas .text p.mas span.menos, .propuestas .text li.mas span.hidden, .propuestas .text li.mas span.menos, .compromisos .copy p.mas span.hidden, .compromisos .copy p.mas span.menos, .compromisos .copy li.mas span.hidden, .compromisos .copy li.mas span.menos, .compromisos .text p.mas span.hidden, .compromisos .text p.mas span.menos, .compromisos .text li.mas span.hidden, .compromisos .text li.mas span.menos {
-  display: none; }
-.propuestas .copy p.mas span.mas, .propuestas .copy li.mas span.mas, .propuestas .text p.mas span.mas, .propuestas .text li.mas span.mas, .compromisos .copy p.mas span.mas, .compromisos .copy li.mas span.mas, .compromisos .text p.mas span.mas, .compromisos .text li.mas span.mas {
-  display: inline; }
-.propuestas .copy p a, .propuestas .copy ol li a, .propuestas .text p a, .propuestas .text ol li a, .compromisos .copy p a, .compromisos .copy ol li a, .compromisos .text p a, .compromisos .text ol li a {
-  color: #000;
-  font-weight: 200; }
-  .propuestas .copy p a:hover, .propuestas .copy p a:hover b, .propuestas .copy p a:hover strong, .propuestas .copy ol li a:hover, .propuestas .copy ol li a:hover b, .propuestas .copy ol li a:hover strong, .propuestas .text p a:hover, .propuestas .text p a:hover b, .propuestas .text p a:hover strong, .propuestas .text ol li a:hover, .propuestas .text ol li a:hover b, .propuestas .text ol li a:hover strong, .compromisos .copy p a:hover, .compromisos .copy p a:hover b, .compromisos .copy p a:hover strong, .compromisos .copy ol li a:hover, .compromisos .copy ol li a:hover b, .compromisos .copy ol li a:hover strong, .compromisos .text p a:hover, .compromisos .text p a:hover b, .compromisos .text p a:hover strong, .compromisos .text ol li a:hover, .compromisos .text ol li a:hover b, .compromisos .text ol li a:hover strong {
-    color: #c87072; }
-.propuestas .copy p.menos, .propuestas .copy li.menos, .propuestas .text p.menos, .propuestas .text li.menos, .compromisos .copy p.menos, .compromisos .copy li.menos, .compromisos .text p.menos, .compromisos .text li.menos {
-  background: #dfd8ce; }
-  .propuestas .copy p.menos span.hidden, .propuestas .copy p.menos span.menos, .propuestas .copy li.menos span.hidden, .propuestas .copy li.menos span.menos, .propuestas .text p.menos span.hidden, .propuestas .text p.menos span.menos, .propuestas .text li.menos span.hidden, .propuestas .text li.menos span.menos, .compromisos .copy p.menos span.hidden, .compromisos .copy p.menos span.menos, .compromisos .copy li.menos span.hidden, .compromisos .copy li.menos span.menos, .compromisos .text p.menos span.hidden, .compromisos .text p.menos span.menos, .compromisos .text li.menos span.hidden, .compromisos .text li.menos span.menos {
-    display: inline; }
-  .propuestas .copy p.menos span.hidden, .propuestas .copy li.menos span.hidden, .propuestas .text p.menos span.hidden, .propuestas .text li.menos span.hidden, .compromisos .copy p.menos span.hidden, .compromisos .copy li.menos span.hidden, .compromisos .text p.menos span.hidden, .compromisos .text li.menos span.hidden {
-    margin: 0.5em 0; }
-  .propuestas .copy p.menos a.leer-mas, .propuestas .copy li.menos a.leer-mas, .propuestas .text p.menos a.leer-mas, .propuestas .text li.menos a.leer-mas, .compromisos .copy p.menos a.leer-mas, .compromisos .copy li.menos a.leer-mas, .compromisos .text p.menos a.leer-mas, .compromisos .text li.menos a.leer-mas {
-    background: #ccc; }
-  .propuestas .copy p.menos span.mas, .propuestas .copy li.menos span.mas, .propuestas .text p.menos span.mas, .propuestas .text li.menos span.mas, .compromisos .copy p.menos span.mas, .compromisos .copy li.menos span.mas, .compromisos .text p.menos span.mas, .compromisos .text li.menos span.mas {
-    display: none; }
-.propuestas .copy a.leer-mas, .propuestas .text a.leer-mas, .compromisos .copy a.leer-mas, .compromisos .text a.leer-mas {
-  text-transform: uppercase;
-  text-decoration: none;
-  color: black;
-  background: #E0DCD5;
-  display: inline-block;
-  padding: 0 0.4em;
-  padding-bottom: 0.1em;
-  margin-left: 0.2em;
-  vertical-align: top;
-  font-family: "FF Meta W01", Helvetica, Arial, sans-serif; }
-  .propuestas .copy a.leer-mas:hover, .propuestas .text a.leer-mas:hover, .compromisos .copy a.leer-mas:hover, .compromisos .text a.leer-mas:hover {
-    text-decoration: underline;
-    color: #fff; }
-.propuestas .copy .propuestas, .propuestas .copy p strong, .propuestas .text .propuestas, .propuestas .text p strong, .compromisos .copy .propuestas, .compromisos .copy p strong, .compromisos .text .propuestas, .compromisos .text p strong {
-  font-weight: bold;
-  font-size: 1.2em; }
-.propuestas .copy p.propuestas, .propuestas .text p.propuestas, .compromisos .copy p.propuestas, .compromisos .text p.propuestas {
-  padding: 0.7em 2em;
-  padding-left: 4em;
-  margin-top: 1em; }
-.propuestas .copy li strong, .propuestas .text li strong, .compromisos .copy li strong, .compromisos .text li strong {
-  font-weight: bold;
-  color: #379088; }
-.propuestas .copy, .compromisos .copy {
-  font-size: 1.2em;
-  position: relative;
+/* TOPBAR */
+body.topbarDocu {
   margin: 0;
-  margin-top: 1em; }
-.propuestas .text span.hidden i, .compromisos .text span.hidden i {
-  font-style: normal;
-  display: inline; }
-.propuestas .text span.hidden, .propuestas .text span.menos, .compromisos .text span.hidden, .compromisos .text span.menos {
-  display: none; }
-.propuestas .text b, .compromisos .text b {
-  color: black; }
-.propuestas .text .left, .propuestas .text .right, .compromisos .text .left, .compromisos .text .right {
-  display: inline-block;
-  vertical-align: top; }
-.propuestas .text .left, .compromisos .text .left {
-  width: 30%;
-  text-align: center; }
-  .propuestas .text .left img, .compromisos .text .left img {
-    height: 16em; }
-.propuestas .text .right, .compromisos .text .right {
-  width: 60%; }
-
-/************************** ;HEADER **************************/
-.header {
-  padding-top: 6em;
-  padding-bottom: 4em;
-  position: relative;
-  z-index: 2;
-  font-size: 1em;
-  overflow: hidden; }
-  .header .azulejo-top {
-    position: absolute;
-    z-index: 1;
-    width: 110%;
-    left: -2%;
-    top: -22%; }
-  .header .pedro-kumamoto {
-    width: 49.5%;
-    padding-left: 4em;
-    margin: 0 auto;
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    z-index: 2; }
-    .header .pedro-kumamoto a {
-      text-decoration: none;
-      color: black;
-      display: block; }
-      .header .pedro-kumamoto a .kumalogo {
-        float: left;
-        margin-right: 0.5em;
-        height: 17.2em;
-        margin-top: -1.2em;
-        position: relative;
-        z-index: 3; }
-      .header .pedro-kumamoto a h1 {
-        padding-top: 0;
-        margin-top: 0;
-        font-size: 10em;
-        line-height: 0.6em;
-        font-family: "Lemon/Milk", Helvetica, Arial;
-        margin-bottom: 0;
-        position: relative;
-        color: transparent;
-        text-align: left; }
-        .header .pedro-kumamoto a h1 img {
-          height: 0.5em;
-          vertical-align: middle; }
-        .header .pedro-kumamoto a h1.kumamoto {
-          font-size: 11em; }
-      .header .pedro-kumamoto a h2 {
-        padding-top: 0;
-        margin-top: 0.4em;
-        font-size: 1.6em;
-        line-height: 0.6em;
-        font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-        margin-bottom: 0;
-        text-align: left;
-        font-weight: 200;
-        color: black; }
-      .header .pedro-kumamoto a:hover {
-        text-decoration: underline;
-        -webkit-transform: scale(1.05);
-        -moz-transform: scale(1.05);
-        -ms-transform: scale(1.05);
-        -o-transform: scale(1.05);
-        transform: scale(1.05); }
-  .header .where {
-    width: 45%;
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    z-index: 2; }
-    .header .where h1 {
-      font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-      font-weight: 200;
-      font-size: 7em;
-      text-align: center;
-      margin: 0;
-      z-index: 2;
-      color: #000;
-      width: 100%;
-      text-align: center;
-      margin-top: 0;
-      line-height: 1em; }
-
-#fullpage .header .where h1 > div {
-  display: none; }
-#fullpage .header .where h1 > div.active {
-  display: inline-block; }
-
-/************************** ;NAVBAR **************************/
-.navbar {
-  background: transparent;
-  position: absolute;
-  bottom: 0;
-  overflow: hidden;
-  height: 9.3em;
-  width: 100%;
-  z-index: 4; }
-  .navbar a {
-    text-transform: uppercase;
-    display: inline-block;
-    line-height: 1.15em;
-    height: 5.6em;
-    font-size: 5.5em;
-    text-decoration: none;
-    color: #4A746D;
-    float: left;
-    text-align: center;
-    width: 33%;
-    text-align: center;
-    font-weight: 200;
-    font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-    position: relative;
-    bottom: -12em;
-    z-index: 1;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; }
-    .navbar a.principios {
-      background: #67B2A4; }
-    .navbar a.propuestas {
-      background: #4E7B74;
-      color: #283F3A;
-      font-weight: bold;
-      height: 6em;
-      font-size: 6.7em;
-      line-height: 1.3em;
-      box-shadow: 0 0.12em 0.36em #1B342F;
-      z-index: 2; }
-    .navbar a.compromisos {
-      background: #67B2A4;
-      letter-spacing: -0.03em; }
-    .navbar a:hover, .navbar a.active {
-      background: #CD5560;
-      color: #fff; }
-    .navbar a.principios, .navbar a.compromisos {
-      margin-top: 0.4em; }
-  .navbar a.principios {
-    width: 30%; }
-    .navbar a.principios a.principios {
-      background: #9b4b52;
-      color: #fff; }
-  .navbar a.compromisos a.compromisos {
-    background: #9b4b52;
-    color: #fff; }
-  .navbar a.propuestas {
-    width: 37%; }
-    .navbar a.propuestas a.propuestas {
-      background: #9b4b52;
-      color: #fff; }
-
-/************************** ;GOODBYE **************************/
-#goodbye {
-  position: absolute;
-  bottom: -8em;
-  background: #333;
-  height: 5em;
-  line-height: 4em;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-  z-index: 10;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  transition: all 1s ease; }
-  #goodbye.emerge {
-    bottom: -0.4em; }
-  #goodbye h1 {
-    display: inline-block;
-    margin: 0;
-    font-size: 2.5em;
-    height: 100%;
-    margin-right: 1.5em;
-    vertical-align: middle; }
-    #goodbye h1 span {
-      display: inline-block;
-      margin-top: 0.1em; }
-  #goodbye span.linea-kumamoto {
-    font-size: 2em; }
-    #goodbye span.linea-kumamoto a {
-      color: #fff !important;
+  padding: 0; }
+  body.topbarDocu .topbar {
+    background: #54A593;
+    color: white;
+    height: 10%;
+    line-height: 10%;
+    font-size: 40px;
+    font-family: sans-serif; }
+    body.topbarDocu .topbar a {
       text-decoration: none; }
-    #goodbye span.linea-kumamoto strong {
-      text-transform: uppercase;
-      font-weight: 200;
-      margin-left: 0.4em;
-      vertical-align: middle;
-      display: inline-block; }
-  #goodbye img {
-    vertical-align: middle;
-    height: 2.5em; }
-  #goodbye img.whatsapp {
-    height: 1.25em; }
-  #goodbye .redes {
-    display: inline-block;
-    margin: 0 2em;
-    padding: 0 1em;
-    margin-right: 1.5em; }
-    #goodbye .redes img {
-      margin-right: 1.1em; }
-    #goodbye .redes .fb {
-      margin-right: 10.5em; }
-      #goodbye .redes .fb img {
-        position: absolute;
-        height: 8em;
-        top: -2.8em; }
-  #goodbye span.correo {
-    font-size: 1.5em;
-    margin-right: 1.5em;
-    display: inline-block; }
-    #goodbye span.correo a {
-      color: #fff !important;
-      text-decoration: none;
-      font-weight: 200; }
-  #goodbye .wikipolitica {
-    display: inline-block; }
-
-/************************** ;KIT KUMAMOTO **************************/
-.kit a {
-  color: black; }
-.kit div.toc {
-  background: #f6f1e9 url(/img/ui/kumatile.jpg);
-  padding: 2em 0;
-  font-size: 1.2em; }
-  .kit div.toc p {
-    width: 80%;
-    margin: 0 auto; }
-    .kit div.toc p big {
-      font-size: 1.5em; }
-  .kit div.toc ul {
-    font-size: 1.5em;
-    width: 80%;
-    margin: 1em auto; }
-    .kit div.toc ul li {
-      margin: 0.5em 0;
-      list-style-type: none; }
-      .kit div.toc ul li a span {
+      body.topbarDocu .topbar a.logo {
+        height: 100%;
         display: inline-block;
-        width: 4em;
-        text-align: center; }
-        .kit div.toc ul li a span img {
-          height: 2em;
-          vertical-align: middle; }
-.kit .content {
-  width: 80%;
-  margin: 0 auto; }
-  .kit .content p {
-    font-size: 1.2em; }
-  .kit .content h1 {
-    font-family: "FF Meta W01", Helvetica, Arial, sans-serif;
-    font-weight: 200;
-    font-size: 4em;
-    text-align: left;
-    margin: 0;
-    z-index: 2;
-    color: #000;
+        background-color: #3D6961;
+        vertical-align: middle; }
+        body.topbarDocu .topbar a.logo img.blanco {
+          display: none; }
+        body.topbarDocu .topbar a.logo:hover {
+          background-color: #C23D4C; }
+          body.topbarDocu .topbar a.logo:hover img.negro {
+            display: none; }
+          body.topbarDocu .topbar a.logo:hover img.blanco {
+            display: inline; }
+    body.topbarDocu .topbar img {
+      height: 80%;
+      margin: 0 20px;
+      margin-top: 10px;
+      vertical-align: middle; }
+    body.topbarDocu .topbar .title {
+      display: inline-block;
+      vertical-align: middle; }
+  body.topbarDocu iframe.docu {
     width: 100%;
-    margin-top: 0.8em;
-    margin-bottom: 0.5em;
-    line-height: 1em;
-    border-bottom: 1px solid #000;
-    margin-left: -1em;
-    padding-bottom: 0.2em; }
-    .kit .content h1 img {
-      vertical-align: bottom;
-      height: 1.5em;
-      margin-right: 0.3em; }
-  .kit .content .videos a.video {
-    display: inline-block;
-    width: 30%;
-    vertical-align: middle;
-    text-align: center; }
-    .kit .content .videos a.video img {
-      display: block;
-      height: 18em; }
-    .kit .content .videos a.video strong {
-      display: block;
-      font-size: 1.4em;
-      margin-top: 0.4em; }
-    .kit .content .videos a.video.wide {
-      margin-top: 2em; }
-      .kit .content .videos a.video.wide img {
-        height: 15em; }
-  .kit .content .fondos .half {
-    width: 45%;
-    display: inline-block; }
-    .kit .content .fondos .half .demo {
-      height: 30em;
-      border: 1px solid #ccc;
-      margin-right: 1em;
-      margin-bottom: 1em;
-      vertical-align: middle; }
-    .kit .content .fondos .half .phone {
-      height: 30em;
-      vertical-align: middle; }
-    .kit .content .fondos .half ul {
-      padding-left: 0; }
-      .kit .content .fondos .half ul li {
-        display: inline-block; }
-        .kit .content .fondos .half ul li a {
-          display: inline-block;
-          padding: 0.5em;
-          margin: 0.6em;
-          background: #eee;
-          text-decoration: none; }
-          .kit .content .fondos .half ul li a:hover {
-            background: #ccc;
-            text-decoration: underline; }
-          .kit .content .fondos .half ul li a strong {
-            font-size: 1.4em; }
-  .kit .content .coverPhotos a.coverPhoto {
-    display: inline-block;
-    width: 30%;
-    vertical-align: middle;
-    text-align: center; }
-    .kit .content .coverPhotos a.coverPhoto img {
-      width: 100%;
-      border: 0.1em solid #ccc; }
-  .kit .content .imprimibles .thumbs a, .kit .content .calcas .thumbs a, .kit .content .playeras .thumbs a {
-    text-decoration: none;
-    display: inline-block;
-    width: 35%;
-    text-align: center;
-    vertical-align: middle; }
-    .kit .content .imprimibles .thumbs a img, .kit .content .calcas .thumbs a img, .kit .content .playeras .thumbs a img {
-      width: 70%;
-      border: 0.1em solid #ccc; }
-  .kit .content a img {
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    transition: all 0.4s ease; }
-  .kit .content a:hover img {
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.2); }
-  .kit .content .calcas .demo, .kit .content .playeras .demo {
-    height: 30em; }
-  .kit .content .calcas .thumbs .three a, .kit .content .playeras .thumbs .three a {
-    width: 30%;
-    margin: 2em 0; }
-    .kit .content .calcas .thumbs .three a img, .kit .content .playeras .thumbs .three a img {
-      height: 15em;
-      width: auto; }
+    height: 90%; }
 
 /*# sourceMappingURL=style.css.map */
