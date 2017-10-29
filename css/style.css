@@ -32,17 +32,13 @@ a:hover {
       width: 120%;
       top: -10%;
       left: -10%; }
-    .header .top div.logo-y-ocupemos {
-      text-align: left;
+    .header .top div.logo {
+      height: 8em;
       position: absolute;
       top: 30px;
       left: 30px;
       z-index: 2;
-      color: white; }
-      .header .top div.logo-y-ocupemos div.logo {
-        height: 8em;
-        position: relative;
-        height: 8em; }
+      height: 8em; }
 @-webkit-keyframes fadeIn {
   from {
     -webkit-transform: scale(0); }
@@ -66,31 +62,43 @@ a:hover {
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); } }
-        .header .top div.logo-y-ocupemos div.logo img {
-          height: 8em;
-          position: absolute;
-          top: 0;
-          left: 0; }
-          .header .top div.logo-y-ocupemos div.logo img.white {
-            z-index: 1; }
-          .header .top div.logo-y-ocupemos div.logo img.color {
-            z-index: 2;
-            opacity: 0;
-            -webkit-transition: all 1s ease;
-            -moz-transition: all 1s ease;
-            transition: all 1s ease; }
-        .header .top div.logo-y-ocupemos div.logo:hover img.color {
-          opacity: 1; }
-      .header .top div.logo-y-ocupemos div.ocupemos-el-congreso {
-        margin-top: 12em;
-        margin-left: 2em;
-        text-align: left;
-        font-weight: bold;
-        font-size: 1.3em; }
-        .header .top div.logo-y-ocupemos div.ocupemos-el-congreso img {
-          width: 85%; }
-        .header .top div.logo-y-ocupemos div.ocupemos-el-congreso span {
+      .header .top div.logo img {
+        height: 8em;
+        position: absolute;
+        top: 0;
+        left: 0; }
+        .header .top div.logo img.white {
+          z-index: 1; }
+        .header .top div.logo img.color {
+          z-index: 2;
+          opacity: 0;
+          -webkit-transition: all 1s ease;
+          -moz-transition: all 1s ease;
+          transition: all 1s ease; }
+      .header .top div.logo:hover img.color {
+        opacity: 1; }
+    .header .top div.vamos {
+      position: absolute;
+      bottom: 2em;
+      left: 2em;
+      text-align: left;
+      font-weight: bold;
+      width: 85%;
+      z-index: 2; }
+      .header .top div.vamos img {
+        width: 85%;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        transition: all 1s ease; }
+        .header .top div.vamos img:hover {
+          -webkit-transform: scale(1.05);
+          -moz-transform: scale(1.05);
+          -ms-transform: scale(1.05);
+          -o-transform: scale(1.05);
+          transform: scale(1.05);
           margin-left: 2em; }
+      .header .top div.vamos span {
+        margin-left: 2em; }
     .header .top div.topbar {
       position: absolute;
       top: 0;
@@ -186,32 +194,10 @@ a:hover {
     .header .bottom .middle {
       width: 36%;
       text-align: center;
-      position: relative;
-      /*&:hover { */
-      /*.front {opacity:0}*/
-      /*}*/
-      /*.hover { position:absolute; top:0; left:0; width:100%; height:$bottomHeight; z-index:1;*/
-      /*.giphy-embed {width:100%; height:auto;}*/
-      /*}*/ }
+      position: relative; }
       .header .bottom .middle .front {
-        -webkit-transition: all 1s ease;
-        -moz-transition: all 1s ease;
-        transition: all 1s ease;
         z-index: 2;
-        /*background:#63CABB url(../img/bkg/newsletter.jpg) center bottom no-repeat; background-size:100%;*/
-        background: #204e63 url(../img/bkg/seisMeses-participacion.png) no-repeat;
-        background-size: auto auto;
-        background-position: center bottom; }
-        .header .bottom .middle .front .seisMeses {
-          background: #005063;
-          height: 180px;
-          width: 100%; }
-          .header .bottom .middle .front .seisMeses img {
-            margin-top: 15px;
-            opacity: 0.5;
-            width: 90%; }
-          .header .bottom .middle .front .seisMeses:hover img {
-            opacity: 1; }
+        background: #ccc; }
     .header .bottom .right {
       background: #393440 url(../img/bkg/wallace.jpg) no-repeat;
       background-size: auto 100%;

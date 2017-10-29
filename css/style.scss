@@ -9,29 +9,31 @@ a {color:white; text-decoration:none}
 		&:hover {
 			img.bkg {width:120%; top:-10%; left:-10%}
 		}
-		div.logo-y-ocupemos { text-align:left; position:absolute; top:30px; left:30px; z-index:2; color:white;
-			div.logo {height:8em; position:relative;
-				@include keyframes(fadeIn) {
-				  from {
-					 @include transform(scale(0));
-				  }
-				  to {
-					 @include transform(scale(1));
-				  }
-				}
-				img {height:8em; position:absolute; top:0; left:0;
-					&.white {z-index:1}
-					&.color {z-index:2; opacity:0; @include transition(all 1s ease);}
-				}
-				&:hover {
-					img.color {opacity:1}
-				}
-				height:8em
+		div.logo {height:8em; position:absolute; top:30px; left:30px; z-index:2; 
+			@include keyframes(fadeIn) {
+			  from {
+				 @include transform(scale(0));
+			  }
+			  to {
+				 @include transform(scale(1));
+			  }
 			}
-			div.ocupemos-el-congreso { margin-top:12em; margin-left:2em; text-align:left; font-weight:bold; font-size:1.3em;
-				img {width:85%}
-				span {margin-left:2em}
+			img {height:8em; position:absolute; top:0; left:0;
+				&.white {z-index:1}
+				&.color {z-index:2; opacity:0; @include transition(all 1s ease);}
 			}
+			&:hover {
+				img.color {opacity:1}
+			}
+			height:8em;
+		}
+		div.vamos { position:absolute; bottom:2em; left:2em; text-align:left; font-weight:bold; width:85%; z-index:2; 
+			img {width:85%; @include transition(all 1s ease);
+				&:hover{
+				 @include transform(scale(1.05)); margin-left:2em;
+				}
+			}
+			span {margin-left:2em}
 		}
 		div.topbar {position:absolute; top:0; right:0; z-index:2; text-align:right;
 			a { display:inline-block; margin:10px 10px 0 0; width:75px; height:75px; position:relative;
@@ -73,21 +75,9 @@ a {color:white; text-decoration:none}
 			}
 		}
 		.middle {width:36%; text-align:center; position:relative;
-			.front { @include transition(all 1s ease); z-index:2;
-				/*background:#63CABB url(../img/bkg/newsletter.jpg) center bottom no-repeat; background-size:100%;*/
-				background:#204e63 url(../img/bkg/seisMeses-participacion.png) no-repeat; background-size:auto auto;
-				background-position:center bottom; 
-				.seisMeses { background:#005063; height:180px; width:100%;
-					img {margin-top:15px; opacity:0.5; width:90%;}
-					&:hover img { opacity:1; }
-				}
+			.front {  z-index:2;
+				background:#ccc; 
 			}
-			/*&:hover { */
-				/*.front {opacity:0}*/
-			/*}*/
-			/*.hover { position:absolute; top:0; left:0; width:100%; height:$bottomHeight; z-index:1;*/
-				/*.giphy-embed {width:100%; height:auto;}*/
-			/*}*/
 		}
 		.right {background:#393440 url(../img/bkg/wallace.jpg) no-repeat; background-size:auto 100%;
 			background-position:right top; 
