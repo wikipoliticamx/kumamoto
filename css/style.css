@@ -20,16 +20,14 @@ a:hover {
     height: 600px;
     overflow: hidden; }
     .header .top img.bkg {
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 1;
-	-webkit-transition: all 2s ease;
-	-moz-transition: all 2s ease;
-	transition: all 2s ease;
-	visibility: visible;
-}
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      -webkit-transition: all 2s ease;
+      -moz-transition: all 2s ease;
+      transition: all 2s ease; }
     .header .top:hover img.bkg {
       width: 120%;
       top: -10%;
@@ -84,23 +82,21 @@ a:hover {
         .header .top div.logo-y-ocupemos div.logo:hover img.color {
           opacity: 1; }
       .header .top div.logo-y-ocupemos div.ocupemos-el-congreso {
-        margin-top: 5em;
-        margin-left: 6em;
+        margin-top: 12em;
+        margin-left: 2em;
         text-align: left;
         font-weight: bold;
         font-size: 1.3em; }
         .header .top div.logo-y-ocupemos div.ocupemos-el-congreso img {
-          margin-bottom: 0.7em; }
+          width: 85%; }
         .header .top div.logo-y-ocupemos div.ocupemos-el-congreso span {
           margin-left: 2em; }
     .header .top div.topbar {
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: 2;
-	text-align: right;
-	width: 132px;
-}
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      text-align: right; }
       .header .top div.topbar a {
         display: inline-block;
         margin: 10px 10px 0 0;
@@ -126,21 +122,19 @@ a:hover {
         .header .top div.topbar a:hover img.color {
           opacity: 1; }
   .header .bottom {
-	break: none;
-	color: white;
-	text-align: center;
-	background: #214e64 url(../img/bkg/that-kinda-blue.jpg);
-	height: 410px;
-	overflow: hidden;
-	position: relative;
-}
+    break: none;
+    color: white;
+    text-align: center;
+    background: #214e64 url(../img/bkg/that-kinda-blue.jpg);
+    height: 420px;
+    overflow: hidden;
+    position: relative; }
     .header .bottom .left, .header .bottom .middle, .header .bottom .right {
-	display: inline-block;
-	width: 33%;
-	max-width: 500px;
-	height: 410px;
-	overflow: hidden;
-}
+      display: inline-block;
+      width: 33%;
+      max-width: 500px;
+      height: 420px;
+      overflow: hidden; }
     .header .bottom .front {
       position: relative;
       width: 100%;
@@ -153,19 +147,17 @@ a:hover {
       opacity: 0.9;
       position: relative; }
       .header .bottom .left .hover, .header .bottom .right .hover {
-	position: absolute;
-	top: 420px;
-	height: 250px;
-	width: 100%;
-	-webkit-transition: all 1s ease;
-	-moz-transition: all 1s ease;
-	transition: all 1s ease;
-}
+        position: absolute;
+        top: 420px;
+        height: 210px;
+        width: 100%;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        transition: all 1s ease; }
       .header .bottom .left:hover, .header .bottom .right:hover {
         opacity: 1; }
         .header .bottom .left:hover .hover, .header .bottom .right:hover .hover {
-	top: 180px;
-}
+          top: 210px; }
     .header .bottom .left {
       background: #393440 url(../img/bkg/kuma-degradado-rojo.jpg) no-repeat;
       background-size: auto 100%;
@@ -189,25 +181,29 @@ a:hover {
           .header .bottom .left .hover .porque a:hover {
             color: black; }
       .header .bottom .left:hover .front h2 {
-	bottom: 294px;
-	left: 45%;
-}
+        bottom: 294px;
+        left: 45%; }
     .header .bottom .middle {
       width: 36%;
       text-align: center;
-      position: relative; }
+      position: relative;
+      /*&:hover { */
+      /*.front {opacity:0}*/
+      /*}*/
+      /*.hover { position:absolute; top:0; left:0; width:100%; height:$bottomHeight; z-index:1;*/
+      /*.giphy-embed {width:100%; height:auto;}*/
+      /*}*/ }
       .header .bottom .middle .front {
         -webkit-transition: all 1s ease;
         -moz-transition: all 1s ease;
         transition: all 1s ease;
         z-index: 2;
         /*background:#63CABB url(../img/bkg/newsletter.jpg) center bottom no-repeat; background-size:100%;*/
-		/*#204e63 #005063 */
-        background: #325266 url(../img/bkg/seisMeses-participacion.png) no-repeat;
+        background: #204e63 url(../img/bkg/seisMeses-participacion.png) no-repeat;
         background-size: auto auto;
         background-position: center bottom; }
         .header .bottom .middle .front .seisMeses {
-          background: #325266;
+          background: #005063;
           height: 180px;
           width: 100%; }
           .header .bottom .middle .front .seisMeses img {
@@ -216,18 +212,6 @@ a:hover {
             width: 90%; }
           .header .bottom .middle .front .seisMeses:hover img {
             opacity: 1; }
-      .header .bottom .middle:hover .front {
-        opacity: 0; }
-      .header .bottom .middle .hover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 420px;
-        z-index: 1; }
-        .header .bottom .middle .hover .giphy-embed {
-          width: 100%;
-          height: 100%; }
     .header .bottom .right {
       background: #393440 url(../img/bkg/wallace.jpg) no-repeat;
       background-size: auto 100%;
@@ -239,9 +223,8 @@ a:hover {
         right: 10%;
         text-align: right; }
       .header .bottom .right .hover {
-        top: -238px; }
+        top: -168px; }
         .header .bottom .right .hover .suscribete {
-          padding-top: 70px;
           background: #62CABB;
           width: 100%;
           height: 168px; }
@@ -257,15 +240,6 @@ a:hover {
             font-size: 1.5em;
             color: #7A9B91;
             text-align: center; }
-          .header .bottom .right .hover .suscribete a {
-            display: block;
-            background-color: #FB524E;
-            width: 65%;
-            margin: 0 auto 15px;
-            font-size: 1.5em;
-            padding: 15px;
-            cursor: pointer;
-          }
       .header .bottom .right:hover {
         opacity: 1; }
         .header .bottom .right:hover .hover {
@@ -317,12 +291,11 @@ a:hover {
       border-bottom: 100px solid transparent;
       border-left: 100px solid transparent; }
     .novedades .novedad .arrow .text {
-	display: inline-block;
-	font-size: 1.7em;
-	line-height: 1em;
-	vertical-align: middle;
-	color: white;
-}
+      display: inline-block;
+      font-size: 1.7em;
+      line-height: 1em;
+      vertical-align: middle;
+      color: white; }
       .novedades .novedad .arrow .text h1 {
         font-size: 1em;
         margin: 0;
@@ -336,12 +309,10 @@ a:hover {
         transition: all 1s ease;
         margin-top: 1em; }
         .novedades .novedad .arrow .text .links a {
-	text-decoration: underline;
-	color: black;
-	display: inline-block;
-	margin-right: 1em;
-	text-align: left;
-}
+          text-decoration: underline;
+          color: black;
+          display: inline-block;
+          margin-right: 1em; }
   .novedades .novedad.reverse {
     text-align: right; }
     .novedades .novedad.reverse .arrow {
@@ -362,7 +333,7 @@ a:hover {
     .novedades .novedad:nth-child(1):hover {
       background-position: right -400px; }
       .novedades .novedad:nth-child(1):hover .arrow {
-        /*width: 40%; */ }
+        width: 40%; }
     .novedades .novedad:nth-child(1) .arrow {
       background: #FB524E; }
       .novedades .novedad:nth-child(1) .arrow .chevron {
@@ -377,7 +348,7 @@ a:hover {
     .novedades .novedad:nth-child(2):hover {
       background-position: 0 -200px; }
       .novedades .novedad:nth-child(2):hover .arrow {
-        /*width: 35%;*/ }
+        width: 35%; }
     .novedades .novedad:nth-child(2) .arrow {
       background: #5CCAC6; }
       .novedades .novedad:nth-child(2) .arrow .chevron {
@@ -392,7 +363,7 @@ a:hover {
     .novedades .novedad:nth-child(3):hover {
       background-position: right -200px; }
       .novedades .novedad:nth-child(3):hover .arrow {
-        /*width: 30%;*/ }
+        width: 30%; }
     .novedades .novedad:nth-child(3) .arrow {
       background: #E8A41D; }
       .novedades .novedad:nth-child(3) .arrow .chevron {
@@ -407,7 +378,7 @@ a:hover {
     .novedades .novedad:nth-child(4):hover {
       background-position: 0 -600px; }
       .novedades .novedad:nth-child(4):hover .arrow {
-        /*width: 35%;*/ }
+        width: 35%; }
     .novedades .novedad:nth-child(4) .arrow {
       background: #3BAD66; }
       .novedades .novedad:nth-child(4) .arrow .chevron {
@@ -416,10 +387,9 @@ a:hover {
     visibility: visible; }
 
 .equipo-kuma {
-	background: white;
-	height: 72em;
-	overflow: hidden;
-}
+  background: white;
+  height: 30em;
+  overflow: hidden; }
   .equipo-kuma div.equipo-strip {
     margin-bottom: 1em;
     height: 6em;
@@ -433,16 +403,15 @@ a:hover {
     .equipo-kuma div.equipo-strip .fright {
       right: 0; }
     .equipo-kuma div.equipo-strip a {
-	text-decoration: none;
-	display: inline-block;
-	padding: 0.3em 0;
-	position: relative;
-	height: 3em;
-	width: 400px;
-	color: black;
-	font-size: 2em;
-	line-height: 4em;
-}
+      text-decoration: underline;
+      display: inline-block;
+      padding: 0.3em 0;
+      position: relative;
+      height: 3em;
+      width: 400px;
+      color: black;
+      font-size: 2em;
+      line-height: 4em; }
       .equipo-kuma div.equipo-strip a img {
         width: 50px;
         position: absolute;

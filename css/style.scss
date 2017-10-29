@@ -28,8 +28,8 @@ a {color:white; text-decoration:none}
 				}
 				height:8em
 			}
-			div.ocupemos-el-congreso { margin-top:5em; margin-left:6em; text-align:left; font-weight:bold; font-size:1.3em;
-				img {margin-bottom:0.7em}
+			div.ocupemos-el-congreso { margin-top:12em; margin-left:2em; text-align:left; font-weight:bold; font-size:1.3em;
+				img {width:85%}
 				span {margin-left:2em}
 			}
 		}
@@ -82,12 +82,12 @@ a {color:white; text-decoration:none}
 					&:hover img { opacity:1; }
 				}
 			}
-			&:hover { 
-				.front {opacity:0}
-			}
-			.hover { position:absolute; top:0; left:0; width:100%; height:$bottomHeight; z-index:1;
-				.giphy-embed {width:100%; height:auto;}
-			}
+			/*&:hover { */
+				/*.front {opacity:0}*/
+			/*}*/
+			/*.hover { position:absolute; top:0; left:0; width:100%; height:$bottomHeight; z-index:1;*/
+				/*.giphy-embed {width:100%; height:auto;}*/
+			/*}*/
 		}
 		.right {background:#393440 url(../img/bkg/wallace.jpg) no-repeat; background-size:auto 100%;
 			background-position:right top; 
